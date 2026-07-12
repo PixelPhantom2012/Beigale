@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beigale Insights — Independent Commercial Due Diligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-base: #F1EBDD;
+    --color-accent: #1D9E75;
+    --color-dark: #2C2C2A;
+    --color-dark-text: #F9F8F5;
+    --color-ink: #2C2C2A;
+
+    --hero-bg: #211F1A;
+    --hero-text: #F9F8F5;
+    --hero-accent: #F0C24B;
+
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-6: 64px;
+
+    --font-headline: 'Newsreader', serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--color-base);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* Nav */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--space-3);
+    height: 64px;
+    background: var(--color-base);
+    border-bottom: 1px solid rgba(44, 44, 42, 0.08);
+  }
+
+  .nav__logo {
+    font-family: var(--font-headline);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--color-ink);
+  }
+
+  .nav__links {
+    display: none;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav__links a {
+    font-size: 14px;
+    color: rgba(44, 44, 42, 0.65);
+    transition: color 0.15s ease;
+  }
+
+  .nav__links a:hover { color: var(--color-ink); }
+
+  .nav__cta {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-ink);
+    border: 1px solid rgba(44, 44, 42, 0.3);
+    padding: 9px 16px;
+    border-radius: 2px;
+    white-space: nowrap;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .nav__cta:hover {
+    background: var(--color-ink);
+    color: var(--color-base);
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    background: var(--hero-bg);
+    overflow: hidden;
+    padding: 96px var(--space-3) 80px;
+  }
+
+  .hero__lines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .hero__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .hero h1 {
+    margin: 0;
+    font-family: var(--font-headline);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 7vw, 3.625rem);
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+    color: var(--hero-text);
+    opacity: 0;
+    transform: translateY(16px);
+    animation: rise 0.8s ease-out 0.1s forwards;
+  }
+
+  .hero__sub {
+    margin: 0;
+    font-size: clamp(1.05rem, 3.5vw, 1.375rem);
+    line-height: 1.55;
+    color: var(--hero-text);
+    opacity: 0;
+    transform: translateY(16px);
+    animation: rise 0.8s ease-out 0.35s forwards;
+  }
+
+  .hero__sub .commercial {
+    color: var(--hero-accent);
+    font-weight: 600;
+  }
+
+  .hero__sub .muted {
+    color: rgba(249, 248, 245, 0.42);
+  }
+
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal-rect {
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: reveal 3.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+  }
+
+  @keyframes reveal {
+    to { transform: scaleX(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero h1, .hero__sub {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-rect {
+      animation: none !important;
+      transform: scaleX(1) !important;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .nav { padding: 0 var(--space-6); height: 84px; }
+    .nav__logo { font-size: 1.1875rem; }
+    .nav__links { display: flex; }
+    .nav__cta { padding: 11px 22px; }
+
+    .hero { padding: 150px var(--space-6) 130px; }
+    .hero__inner { max-width: 900px; margin: 0 auto; gap: 36px; }
+    .hero__sub { max-width: 640px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__logo">Beigale Insights</div>
+  <ul class="nav__links">
+    <li><a href="#gap">The Gap</a></li>
+    <li><a href="#solution">Solution</a></li>
+    <li><a href="#engagements">Engagements</a></li>
+    <li><a href="#who">Who We Serve</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav__cta" href="#contact">Get in Touch</a>
+</nav>
+
+<header class="hero">
+  <div class="hero__lines">
+    <svg width="100%" height="100%" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" style="position:absolute; inset:0;">
+      <defs>
+        <clipPath id="lineReveal">
+          <rect class="reveal-rect" x="-200" y="-400" width="2300" height="2000"/>
+        </clipPath>
+      </defs>
+      <g clip-path="url(#lineReveal)" fill="none" stroke="#F9F8F5" stroke-opacity="0.35">
+        <path d="M-150,-60 C 280,100 480,160 880,440 C 1180,650 1420,780 1680,980" stroke-width="0.6"/>
+        <path d="M-150,10 C 310,160 520,210 930,490 C 1230,700 1470,830 1730,1030" stroke-width="0.9"/>
+        <path d="M-150,90 C 350,230 570,270 990,550 C 1290,760 1530,890 1790,1090" stroke-width="1.2"/>
+        <path d="M-150,190 C 400,310 630,340 1060,620 C 1360,830 1600,960 1860,1160" stroke-width="0.9"/>
+        <path d="M-150,300 C 450,400 700,420 1140,700 C 1440,910 1680,1040 1940,1240" stroke-width="0.6"/>
+        <path d="M-150,-180 C 220,10 420,110 820,390 C 1120,600 1360,730 1620,930" stroke-width="0.8"/>
+        <path d="M-150,430 C 500,500 780,510 1230,790 C 1530,1000 1770,1130 2030,1330" stroke-width="0.45"/>
+        <path d="M-150,-300 C 170,-70 360,50 760,340 C 1050,560 1290,690 1550,890" stroke-width="0.5"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hero__inner">
+    <h1>Independent commercial due diligence for mid-market M&amp;A</h1>
+    <p class="hero__sub">
+      We independently assess the <span class="commercial">commercial</span> engine behind the deal.
+      <span class="muted">Financial and legal diligence</span> confirm the deal is clean.
+      We confirm it's worth it.
+    </p>
+  </div>
+</header>
+
+</body>
+</html>
