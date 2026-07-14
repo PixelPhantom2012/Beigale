@@ -103,6 +103,14 @@
     padding: 96px var(--space-3) 80px;
   }
 
+  .hero__texture {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(249, 248, 245, 0.06) 1px, transparent 1px);
+    background-size: 22px 22px;
+    pointer-events: none;
+  }
+
   .hero__lines {
     position: absolute;
     inset: 0;
@@ -133,8 +141,8 @@
   .hero__sub {
     margin: 0;
     font-size: clamp(1.05rem, 3.5vw, 1.375rem);
-    line-height: 1.55;
-    color: var(--hero-text);
+    line-height: 1.6;
+    color: rgba(249, 248, 245, 0.9);
     opacity: 0;
     transform: translateY(16px);
     animation: rise 0.8s ease-out 0.35s forwards;
@@ -147,6 +155,11 @@
 
   .hero__sub .muted {
     color: rgba(249, 248, 245, 0.42);
+  }
+
+  .hero__sub .emphasis {
+    color: var(--hero-text);
+    font-weight: 500;
   }
 
   @keyframes rise {
@@ -183,7 +196,7 @@
 
     .hero { padding: 150px var(--space-6) 130px; }
     .hero__inner { max-width: 900px; margin: 0 auto; gap: 36px; }
-    .hero__sub { max-width: 640px; }
+    .hero__sub { max-width: 660px; }
   }
 </style>
 </head>
@@ -203,6 +216,7 @@
 </nav>
 
 <header class="hero">
+  <div class="hero__texture"></div>
   <div class="hero__lines">
     <svg width="100%" height="100%" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" style="position:absolute; inset:0;">
       <defs>
@@ -213,8 +227,8 @@
       <g clip-path="url(#lineReveal)" fill="none" stroke="#F9F8F5" stroke-opacity="0.35">
         <path d="M-150,-60 C 280,100 480,160 880,440 C 1180,650 1420,780 1680,980" stroke-width="0.6"/>
         <path d="M-150,10 C 310,160 520,210 930,490 C 1230,700 1470,830 1730,1030" stroke-width="0.9"/>
-        <path d="M-150,90 C 350,230 570,270 990,550 C 1290,760 1530,890 1790,1090" stroke-width="1.2"/>
-        <path d="M-150,190 C 400,310 630,340 1060,620 C 1360,830 1600,960 1860,1160" stroke-width="0.9"/>
+        <path d="M-150,90 C 350,230 570,270 990,550 C 1290,760 1530,890 1790,1090" stroke="#1D9E75" stroke-width="1.6"/>
+        <path d="M-150,190 C 400,310 630,340 1060,620 C 1360,830 1600,960 1860,1160" stroke="#F0C24B" stroke-width="1.3"/>
         <path d="M-150,300 C 450,400 700,420 1140,700 C 1440,910 1680,1040 1940,1240" stroke-width="0.6"/>
         <path d="M-150,-180 C 220,10 420,110 820,390 C 1120,600 1360,730 1620,930" stroke-width="0.8"/>
         <path d="M-150,430 C 500,500 780,510 1230,790 C 1530,1000 1770,1130 2030,1330" stroke-width="0.45"/>
@@ -227,7 +241,7 @@
     <p class="hero__sub">
       We independently assess the <span class="commercial">commercial</span> engine behind the deal.
       <span class="muted">Financial and legal diligence</span> confirm the deal is clean.
-      We confirm it's worth it.
+      <span class="emphasis">We confirm it's worth it.</span>
     </p>
   </div>
 </header>
