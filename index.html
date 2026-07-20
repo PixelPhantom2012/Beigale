@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --color-base: #F1EBDD;
+    --color-base: #F9F8F5;
     --color-accent: #1D9E75;
     --color-dark: #2C2C2A;
     --color-dark-text: #F9F8F5;
@@ -19,15 +19,21 @@
     --hero-text: #F9F8F5;
     --hero-accent: #F0C24B;
 
+    --space-2: 16px;
     --space-3: 24px;
     --space-4: 32px;
+    --space-5: 48px;
     --space-6: 64px;
+    --space-7: 96px;
+    --space-8: 128px;
 
     --font-headline: 'Newsreader', serif;
     --font-body: 'Inter', sans-serif;
   }
 
   * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
 
   body {
     margin: 0;
@@ -39,6 +45,13 @@
   }
 
   a { color: inherit; text-decoration: none; }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
 
   /* Nav */
   .nav {
@@ -60,6 +73,7 @@
     font-weight: 500;
     letter-spacing: 0.01em;
     color: var(--color-ink);
+    text-decoration: none;
   }
 
   .nav__links {
@@ -79,7 +93,17 @@
 
   .nav__links a:hover { color: var(--color-ink); }
 
+  .nav__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
   .nav__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
     font-size: 14px;
     font-weight: 500;
     color: var(--color-ink);
@@ -95,12 +119,59 @@
     color: var(--color-base);
   }
 
+  .nav__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  .nav__toggle svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .nav__toggle .icon-close { display: none; }
+  .nav__toggle[aria-expanded="true"] .icon-menu { display: none; }
+  .nav__toggle[aria-expanded="true"] .icon-close { display: block; }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    position: sticky;
+    top: 64px;
+    z-index: 9;
+    background: var(--color-base);
+    border-bottom: 1px solid rgba(44, 44, 42, 0.08);
+    padding: 0 var(--space-3) var(--space-2);
+  }
+
+  .mobile-menu.is-open { display: flex; }
+
+  .mobile-menu a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 15px;
+    color: var(--color-ink);
+    border-bottom: 1px solid rgba(44, 44, 42, 0.06);
+  }
+
+  .mobile-menu a:last-child { border-bottom: none; }
+
   /* Hero */
   .hero {
     position: relative;
     background: var(--hero-bg);
     overflow: hidden;
-    padding: 96px var(--space-3) 80px;
+    padding: 96px var(--space-3) 92px;
   }
 
   .hero__texture {
@@ -153,15 +224,6 @@
     font-weight: 600;
   }
 
-  .hero__sub .muted {
-    color: rgba(249, 248, 245, 0.42);
-  }
-
-  .hero__sub .emphasis {
-    color: var(--hero-text);
-    font-weight: 500;
-  }
-
   @keyframes rise {
     to { opacity: 1; transform: translateY(0); }
   }
@@ -169,7 +231,7 @@
   .reveal-rect {
     transform: scaleX(0);
     transform-origin: left;
-    animation: reveal 3.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    animation: reveal 4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
   }
 
   @keyframes reveal {
@@ -186,36 +248,301 @@
       animation: none !important;
       transform: scaleX(1) !important;
     }
+    .reveal {
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
   }
 
   @media (min-width: 900px) {
     .nav { padding: 0 var(--space-6); height: 84px; }
     .nav__logo { font-size: 1.1875rem; }
     .nav__links { display: flex; }
+    .nav__toggle { display: none; }
+    .mobile-menu { display: none !important; }
     .nav__cta { padding: 11px 22px; }
 
-    .hero { padding: 150px var(--space-6) 130px; }
+    .hero { padding: 150px var(--space-6) 208px; }
     .hero__inner { max-width: 900px; margin: 0 auto; gap: 36px; }
     .hero__sub { max-width: 660px; }
+  }
+
+  /* Solution */
+  .solution {
+    background: var(--color-base);
+    padding: var(--space-6) var(--space-3);
+  }
+
+  .solution__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .solution__label {
+    margin: 0 0 var(--space-2);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .solution__header {
+    margin: 0 0 var(--space-3);
+    font-family: var(--font-headline);
+    font-weight: 400;
+    font-size: clamp(1.65rem, 6vw, 2.75rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+    max-width: 18ch;
+  }
+
+  .solution__intro {
+    margin: 0 0 var(--space-6);
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    line-height: 1.6;
+    color: rgba(44, 44, 42, 0.72);
+    max-width: 58ch;
+  }
+
+  .solution__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: var(--space-6);
+    column-gap: clamp(20px, 6vw, 40px);
+  }
+
+  .pillar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pillar__icon {
+    width: clamp(24px, 6vw, 32px);
+    height: clamp(24px, 6vw, 32px);
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+  }
+
+  .pillar__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .pillar__headline {
+    margin: 0 0 var(--space-2);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(0.9375rem, 3.6vw, 1.0625rem);
+    line-height: 1.35;
+    color: var(--color-ink);
+    min-height: calc(1.35em * 3);
+    text-align: center;
+  }
+
+  @media (min-width: 900px) {
+    .pillar__headline {
+      margin-bottom: var(--space-3);
+      min-height: calc(1.35em * 2);
+    }
+  }
+
+  .pillar__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-self: stretch;
+    text-align: left;
+  }
+
+  .pillar__list li {
+    position: relative;
+    padding-left: 14px;
+    font-size: clamp(0.8125rem, 3.2vw, 0.9375rem);
+    line-height: 1.6;
+    color: rgba(44, 44, 42, 0.68);
+  }
+
+  .pillar__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(44, 44, 42, 0.28);
+  }
+
+  .pillar:nth-child(2) { transition-delay: 0.05s; }
+  .pillar:nth-child(3) { transition-delay: 0.1s; }
+  .pillar:nth-child(4) { transition-delay: 0.15s; }
+
+  @media (min-width: 900px) {
+    .solution { padding: var(--space-8) var(--space-6); }
+    .solution__grid { grid-template-columns: repeat(4, 1fr); column-gap: var(--space-5); row-gap: var(--space-5); }
+  }
+
+  /* Engagements */
+  .engagements {
+    background: var(--color-base);
+    padding: var(--space-6) var(--space-3);
+  }
+
+  .engagements__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .engagements__label {
+    margin: 0 0 var(--space-6);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .engagements__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: var(--space-5);
+  }
+
+  .engagement-item__duration {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin: 0 0 var(--space-3);
+  }
+
+  .engagement-item__duration-num {
+    font-family: var(--font-headline);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2.25rem, 9vw, 2.75rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+  }
+
+  .engagement-item__duration-unit {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(44, 44, 42, 0.68);
+  }
+
+  .engagement-item__title {
+    margin: 0 0 var(--space-2);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(0.9375rem, 3.6vw, 1.0625rem);
+    line-height: 1.35;
+    color: var(--color-ink);
+  }
+
+  .engagement-item__scope {
+    margin: 0;
+    font-size: clamp(0.8125rem, 3.2vw, 0.9375rem);
+    line-height: 1.6;
+    color: rgba(44, 44, 42, 0.68);
+    max-width: 42ch;
+  }
+
+  .engagement-item--full {
+    padding: var(--space-5) var(--space-4);
+    border: 1px solid rgba(44, 44, 42, 0.14);
+    border-top: 2px solid var(--color-accent);
+    background: rgba(44, 44, 42, 0.028);
+    border-radius: 2px;
+  }
+
+  .engagement-item--full .engagement-item__duration-num {
+    font-size: clamp(2.75rem, 10vw, 3.5rem);
+  }
+
+  .engagements__shared {
+    margin: var(--space-7) 0 0;
+    font-size: clamp(0.8125rem, 3.2vw, 0.9375rem);
+    line-height: 1.6;
+    color: rgba(44, 44, 42, 0.68);
+    max-width: 58ch;
+  }
+
+  .engagement-item:nth-child(2) { transition-delay: 0.05s; }
+
+  @media (min-width: 900px) {
+    .engagements { padding: var(--space-8) var(--space-6); }
+
+    .engagements__grid {
+      grid-template-columns: 5fr 7fr;
+      column-gap: var(--space-6);
+      align-items: start;
+    }
+
+    .engagement-item--focused { padding-top: var(--space-5); }
+
+    .engagement-item--full { padding: var(--space-6); }
   }
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <div class="nav__logo">Beigale Insights</div>
+  <a class="nav__logo" href="#hero">Beigale Insights Ltd.</a>
   <ul class="nav__links">
-    <li><a href="#gap">The Gap</a></li>
     <li><a href="#solution">Solution</a></li>
     <li><a href="#engagements">Engagements</a></li>
     <li><a href="#who">Who We Serve</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a class="nav__cta" href="#contact">Get in Touch</a>
+  <div class="nav__actions">
+    <a class="nav__cta" href="#contact">Get in Touch</a>
+    <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="4" y1="7" x2="20" y2="7"/>
+        <line x1="4" y1="12" x2="20" y2="12"/>
+        <line x1="4" y1="17" x2="20" y2="17"/>
+      </svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="5" y1="5" x2="19" y2="19"/>
+        <line x1="19" y1="5" x2="5" y2="19"/>
+      </svg>
+    </button>
+  </div>
 </nav>
 
-<header class="hero">
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#solution">Solution</a>
+  <a href="#engagements">Engagements</a>
+  <a href="#who">Who We Serve</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<main>
+<header class="hero" id="hero">
   <div class="hero__texture"></div>
   <div class="hero__lines">
     <svg width="100%" height="100%" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" style="position:absolute; inset:0;">
@@ -225,14 +552,16 @@
         </clipPath>
       </defs>
       <g clip-path="url(#lineReveal)" fill="none" stroke="#F9F8F5" stroke-opacity="0.35">
-        <path d="M-150,-60 C 280,100 480,160 880,440 C 1180,650 1420,780 1680,980" stroke-width="0.6"/>
-        <path d="M-150,10 C 310,160 520,210 930,490 C 1230,700 1470,830 1730,1030" stroke-width="0.9"/>
-        <path d="M-150,90 C 350,230 570,270 990,550 C 1290,760 1530,890 1790,1090" stroke="#1D9E75" stroke-width="1.6"/>
-        <path d="M-150,190 C 400,310 630,340 1060,620 C 1360,830 1600,960 1860,1160" stroke="#F0C24B" stroke-width="1.3"/>
-        <path d="M-150,300 C 450,400 700,420 1140,700 C 1440,910 1680,1040 1940,1240" stroke-width="0.6"/>
-        <path d="M-150,-180 C 220,10 420,110 820,390 C 1120,600 1360,730 1620,930" stroke-width="0.8"/>
-        <path d="M-150,430 C 500,500 780,510 1230,790 C 1530,1000 1770,1130 2030,1330" stroke-width="0.45"/>
-        <path d="M-150,-300 C 170,-70 360,50 760,340 C 1050,560 1290,690 1550,890" stroke-width="0.5"/>
+        <g transform="translate(1440,0) scale(-1,1)">
+          <path d="M-150,-60 C 280,100 480,160 880,440 C 1180,650 1420,780 1680,980" stroke-width="0.6"/>
+          <path d="M-150,10 C 310,160 520,210 930,490 C 1230,700 1470,830 1730,1030" stroke-width="0.9"/>
+          <path d="M-150,90 C 350,230 570,270 990,550 C 1290,760 1530,890 1790,1090" stroke="#1D9E75" stroke-width="1.6"/>
+          <path d="M-150,190 C 400,310 630,340 1060,620 C 1360,830 1600,960 1860,1160" stroke="#F0C24B" stroke-width="1.3"/>
+          <path d="M-150,300 C 450,400 700,420 1140,700 C 1440,910 1680,1040 1940,1240" stroke-width="0.6"/>
+          <path d="M-150,-180 C 220,10 420,110 820,390 C 1120,600 1360,730 1620,930" stroke-width="0.8"/>
+          <path d="M-150,430 C 500,500 780,510 1230,790 C 1530,1000 1770,1130 2030,1330" stroke-width="0.45"/>
+          <path d="M-150,-300 C 170,-70 360,50 760,340 C 1050,560 1290,690 1550,890" stroke-width="0.5"/>
+        </g>
       </g>
     </svg>
   </div>
@@ -240,11 +569,140 @@
     <h1>Independent commercial due diligence for mid-market M&amp;A</h1>
     <p class="hero__sub">
       We independently assess the <span class="commercial">commercial</span> engine behind the deal.
-      <span class="muted">Financial and legal diligence</span> confirm the deal is clean.
-      <span class="emphasis">We confirm it's worth it.</span>
     </p>
   </div>
 </header>
+
+<section class="solution" id="solution">
+  <div class="solution__inner">
+    <p class="solution__label">Solution</p>
+    <h2 class="solution__header reveal">Confirming the deal is worth it</h2>
+    <p class="solution__intro reveal">We independently test whether the target's commercial engine can deliver the revenue, growth and profitability the deal is priced on.</p>
+
+    <div class="solution__grid">
+      <article class="pillar reveal">
+        <div class="pillar__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="7" width="18" height="12" rx="1.5"/>
+            <path d="M8 7V5.5A1.5 1.5 0 0 1 9.5 4h5A1.5 1.5 0 0 1 16 5.5V7"/>
+            <path d="M3 12h18"/>
+          </svg>
+        </div>
+        <h3 class="pillar__headline">Commercial assets you are acquiring</h3>
+        <ul class="pillar__list">
+          <li>Customer base and relationships</li>
+          <li>Commercial team and tools</li>
+          <li>Contracts, pipeline and partnerships</li>
+          <li>Market and competitive position</li>
+        </ul>
+      </article>
+
+      <article class="pillar reveal">
+        <div class="pillar__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3.5 19 6.5v5.2c0 4.4-3 7.9-7 9-4-1.1-7-4.6-7-9V6.5Z"/>
+          </svg>
+        </div>
+        <h3 class="pillar__headline">Durability – risk of decline post-acquisition</h3>
+        <ul class="pillar__list">
+          <li>Revenue quality</li>
+          <li>Customer concentration</li>
+          <li>Key commercial risks and dependencies</li>
+        </ul>
+      </article>
+
+      <article class="pillar reveal">
+        <div class="pillar__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.5 16.5 9 11l4 3.5 7.5-8"/>
+            <path d="M16.5 6.5H20.5V10.5"/>
+          </svg>
+        </div>
+        <h3 class="pillar__headline">Outlook</h3>
+        <ul class="pillar__list">
+          <li>Growth-plan credibility</li>
+          <li>Independent bottom-up growth outlook</li>
+          <li>Pricing, margins and EBITDA achievability</li>
+        </ul>
+      </article>
+
+      <article class="pillar reveal">
+        <div class="pillar__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9.5" cy="12" r="6"/>
+            <circle cx="14.5" cy="12" r="6"/>
+          </svg>
+        </div>
+        <h3 class="pillar__headline">Synergies</h3>
+        <ul class="pillar__list">
+          <li>Synergy potential</li>
+          <li>Post-close priorities</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="engagements" id="engagements">
+  <div class="engagements__inner">
+    <p class="engagements__label">Engagements</p>
+
+    <div class="engagements__grid">
+      <article class="engagement-item engagement-item--focused reveal">
+        <p class="engagement-item__duration">
+          <span class="engagement-item__duration-num">~3</span>
+          <span class="engagement-item__duration-unit">weeks</span>
+        </p>
+        <h3 class="engagement-item__title">Focused Commercial Risk Assessment</h3>
+        <p class="engagement-item__scope">Commercial assets and durability — the risk questions that most affect the investment decision.</p>
+      </article>
+
+      <article class="engagement-item engagement-item--full reveal">
+        <p class="engagement-item__duration">
+          <span class="engagement-item__duration-num">~6–8</span>
+          <span class="engagement-item__duration-unit">weeks</span>
+        </p>
+        <h3 class="engagement-item__title">Full Commercial Due Diligence</h3>
+        <p class="engagement-item__scope">All four: assets, durability, outlook and synergies — the complete commercial picture.</p>
+      </article>
+    </div>
+
+    <p class="engagements__shared reveal">Both conclude with a written report and a live readout to the deal team. Timed to signing deadlines.</p>
+  </div>
+</section>
+</main>
+
+<script>
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function (el) { observer.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  var navToggle = document.getElementById('navToggle');
+  var mobileMenu = document.getElementById('mobileMenu');
+  if (navToggle && mobileMenu) {
+    navToggle.addEventListener('click', function () {
+      var isOpen = mobileMenu.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
 
 </body>
 </html>
