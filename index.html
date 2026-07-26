@@ -35,7 +35,7 @@
 
   html { scroll-behavior: smooth; }
 
-  #hero, #solution, #engagements, #who, #why {
+  #hero, #solution, #engagements, #who, #why, #contact {
     scroll-margin-top: 64px;
   }
 
@@ -306,7 +306,7 @@
     .mobile-menu { display: none !important; }
     .nav__cta { padding: 11px 22px; }
 
-    #hero, #solution, #engagements, #who, #why {
+    #hero, #solution, #engagements, #who, #why, #contact {
       scroll-margin-top: 84px;
     }
 
@@ -853,6 +853,93 @@
       display: contents;
     }
   }
+
+  /* Contact */
+  .contact {
+    background: var(--color-base);
+    padding: var(--space-6) var(--space-3) var(--space-4);
+    text-align: center;
+  }
+
+  .contact__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact__label {
+    margin: 0 0 var(--space-2);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .contact__header {
+    margin: 0 auto var(--space-6);
+    font-family: var(--font-headline);
+    font-weight: 400;
+    font-size: clamp(1.65rem, 6vw, 2.75rem);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+    max-width: 22ch;
+  }
+
+  .contact__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .contact__action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .contact__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 180px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-ink);
+    border: 1px solid rgba(44, 44, 42, 0.3);
+    padding: 11px 22px;
+    border-radius: 2px;
+    white-space: nowrap;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .contact__button:hover {
+    background: var(--color-ink);
+    color: var(--color-base);
+  }
+
+  .contact__detail {
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(44, 44, 42, 0.55);
+  }
+
+  .contact__action:nth-child(2) { transition-delay: 0.05s; }
+
+  @media (min-width: 900px) {
+    .contact {
+      padding: var(--space-8) var(--space-6) var(--space-6);
+    }
+
+    .contact__actions {
+      flex-direction: row;
+      justify-content: center;
+      gap: var(--space-6);
+    }
+  }
 </style>
 </head>
 <body>
@@ -1125,6 +1212,25 @@
             <p class="partner__bio">Stanford MBA with 25+ years spanning entrepreneurship, executive leadership and strategic advisory. Guy has founded and scaled companies, served as CEO and CRO, and advised management teams and investors on strategy, business development and commercial due diligence.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact__inner">
+    <p class="contact__label">Contact</p>
+    <h2 class="contact__header reveal">You have a deal in process. Let's talk about the commercial case.</h2>
+
+    <div class="contact__actions">
+      <div class="contact__action reveal">
+        <a class="contact__button" href="mailto:hagaiheshes@gmail.com">Email Us</a>
+        <span class="contact__detail">hagaiheshes@gmail.com</span>
+      </div>
+
+      <div class="contact__action reveal">
+        <a class="contact__button" href="https://wa.me/972532851277" target="_blank" rel="noopener">WhatsApp Us</a>
+        <span class="contact__detail">+972 53-285-1277</span>
       </div>
     </div>
   </div>
