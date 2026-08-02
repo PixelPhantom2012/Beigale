@@ -3,7 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Beigale Insights — Independent Commercial Due Diligence</title>
+<title>Beigale Insights — Commercial Due Diligence &amp; Post-Deal Value Creation</title>
+<meta name="description" content="Beigale Insights is an independent commercial advisory led by Hagai Heshes and Guy Spira, helping acquirers assess commercial risk before a deal and helping leadership teams create value after it.">
+<link rel="canonical" href="https://www.beigale.com/">
+
+<link rel="icon" type="image/jpeg" href="assets/favicon.jpeg">
+<link rel="apple-touch-icon" href="assets/favicon.jpeg">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Beigale Insights">
+<meta property="og:title" content="Beigale Insights — Commercial Due Diligence &amp; Post-Deal Value Creation">
+<meta property="og:description" content="Independent commercial advisory led by Hagai Heshes and Guy Spira — commercial due diligence before the deal, commercial value creation after it.">
+<meta property="og:url" content="https://www.beigale.com/">
+<meta property="og:image" content="https://www.beigale.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Beigale Insights — Commercial Due Diligence &amp; Post-Deal Value Creation">
+<meta name="twitter:description" content="Independent commercial advisory led by Hagai Heshes and Guy Spira — commercial due diligence before the deal, commercial value creation after it.">
+<meta name="twitter:image" content="https://www.beigale.com/assets/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Beigale Insights",
+  "url": "https://www.beigale.com/",
+  "description": "Independent commercial due diligence and post-deal commercial value creation for acquirers and leadership teams.",
+  "email": "hagaiheshes@gmail.com",
+  "founder": [
+    {
+      "@type": "Person",
+      "name": "Hagai Heshes",
+      "alumniOf": "University of Pennsylvania"
+    },
+    {
+      "@type": "Person",
+      "name": "Guy Spira",
+      "alumniOf": "Stanford Graduate School of Business"
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -35,8 +78,24 @@
 
   html { scroll-behavior: smooth; }
 
-  #hero, #solution, #engagements, #who, #why, #contact {
+  .mobile-break { display: block; }
+  @media (min-width: 900px) {
+    .mobile-break { display: none; }
+  }
+
+  #hero, #what-we-do, #who, #why, #contact {
     scroll-margin-top: 64px;
+  }
+
+  /* #who and #contact have a smaller own top-padding (16px mobile) than
+     #what-we-do/#why (32px mobile), so their scroll-margin-top is increased
+     to compensate. For #who specifically, this also happens to be exactly
+     what's needed to land the click with the end of What We Do's cards
+     sitting flush against the nav (confirmed against the client's request
+     — the same value satisfies both "flush with nav" and "consistent
+     eyebrow gap," they're not in conflict). */
+  #who, #contact {
+    scroll-margin-top: 80px;
   }
 
   body {
@@ -175,7 +234,7 @@
     position: relative;
     background: var(--hero-bg);
     overflow: hidden;
-    padding: 96px var(--space-3) 92px;
+    padding: 96px var(--space-3) 146px;
   }
 
   .hero__texture {
@@ -223,7 +282,7 @@
     animation: rise 0.8s ease-out 0.35s forwards;
   }
 
-  .hero__sub .commercial {
+  .hero__sub .accent {
     color: var(--hero-accent);
     font-weight: 600;
   }
@@ -306,35 +365,32 @@
     .mobile-menu { display: none !important; }
     .nav__cta { padding: 11px 22px; }
 
-    #hero, #solution, #engagements, #who, #why, #contact {
+    #hero, #what-we-do, #who, #why, #contact {
       scroll-margin-top: 84px;
     }
 
-    /* Solution's top padding is doubled (var(--space-8)) for the Hero→Solution
-       transition; a smaller scroll-margin-top here lets the nav-link scroll land
-       past half of that padding instead of revealing the full gap. */
-    #solution {
-      scroll-margin-top: 20px;
+    #who, #contact {
+      scroll-margin-top: 116px;
     }
 
-    .hero { padding: 150px var(--space-6) 208px; }
+    .hero { padding: 150px var(--space-6) 312px; }
     .hero__inner { max-width: 900px; margin: 0 auto; gap: 36px; }
     .hero__sub { max-width: 660px; }
     .hero__cta { margin-top: 36px; }
   }
 
-  /* Solution */
-  .solution {
+  /* What We Do */
+  .what-we-do {
     background: var(--color-base);
-    padding: var(--space-6) var(--space-3) var(--space-4);
+    padding: 48px var(--space-3) 10px;
   }
 
-  .solution__inner {
+  .what-we-do__inner {
     max-width: 1200px;
     margin: 0 auto;
   }
 
-  .solution__label {
+  .what-we-do__label {
     margin: 0 0 var(--space-2);
     font-size: 13px;
     font-weight: 600;
@@ -343,164 +399,64 @@
     color: var(--color-accent);
   }
 
-  .solution__header {
-    margin: 0 0 var(--space-3);
+  .what-we-do__header {
+    margin: 0 0 var(--space-4);
     font-family: var(--font-headline);
     font-weight: 400;
-    font-size: clamp(1.65rem, 6vw, 2.75rem);
+    font-size: clamp(1.4375rem, 7.44vw, 2.0625rem);
     line-height: 1.2;
     letter-spacing: -0.01em;
     color: var(--color-ink);
-    max-width: 18ch;
+    max-width: 20ch;
   }
 
-  .solution__intro {
-    margin: 0 0 var(--space-6);
-    font-size: clamp(1rem, 2.5vw, 1.125rem);
-    line-height: 1.6;
-    color: rgba(44, 44, 42, 0.72);
-    max-width: 58ch;
+  @media (min-width: 440px) {
+    .what-we-do__header {
+      font-size: 33px;
+    }
   }
 
-  .solution__grid {
+  @media (min-width: 500px) {
+    .what-we-do__header {
+      font-size: clamp(1.65rem, 6vw, 2.75rem);
+    }
+  }
+
+  .what-we-do__grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: var(--space-6);
-    column-gap: clamp(20px, 6vw, 40px);
+    grid-template-columns: 1fr;
+    row-gap: var(--space-4);
   }
 
-  .pillar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .service-card {
+    padding: var(--space-4);
+    border: 1px solid rgba(44, 44, 42, 0.14);
+    border-top: 2px solid var(--hero-accent);
+    background: rgba(44, 44, 42, 0.028);
+    border-radius: 2px;
   }
 
-  .pillar__icon {
-    width: clamp(24px, 6vw, 32px);
-    height: clamp(24px, 6vw, 32px);
-    color: var(--color-accent);
-    margin-bottom: var(--space-2);
+  .service-card--value {
+    border-top-color: var(--color-accent);
   }
 
-  .pillar__icon svg {
+  .service-card__icon {
+    width: 28px;
+    height: 28px;
+    margin-bottom: var(--space-3);
+  }
+
+  .service-card--dd .service-card__icon { color: var(--hero-accent); }
+  .service-card--value .service-card__icon { color: var(--color-accent); }
+
+  .service-card__icon svg {
     width: 100%;
     height: 100%;
     display: block;
   }
 
-  .pillar__headline {
-    margin: 0 0 4px;
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: clamp(0.9375rem, 3.6vw, 1.0625rem);
-    line-height: 1.35;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    color: var(--color-ink);
-    text-align: center;
-  }
-
-  .pillar__subtitle {
-    margin: 0 0 3px;
-    font-size: clamp(0.8125rem, 3.2vw, 0.9375rem);
-    line-height: 1.5;
-    color: var(--color-ink);
-    text-align: center;
-    min-height: calc(1.5em * 2);
-  }
-
-  @media (min-width: 900px) {
-    .pillar__subtitle {
-      margin-bottom: 6px;
-    }
-  }
-
-  .pillar__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-self: stretch;
-    text-align: left;
-  }
-
-  .pillar__list li {
-    position: relative;
-    padding-left: 14px;
-    font-size: clamp(0.8125rem, 3.2vw, 0.9375rem);
-    line-height: 1.6;
-    color: rgba(44, 44, 42, 0.68);
-  }
-
-  .pillar__list li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.65em;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: rgba(44, 44, 42, 0.28);
-  }
-
-  .pillar:nth-child(2) { transition-delay: 0.05s; }
-  .pillar:nth-child(3) { transition-delay: 0.1s; }
-  .pillar:nth-child(4) { transition-delay: 0.15s; }
-
-  @media (min-width: 900px) {
-    .solution { padding: var(--space-8) var(--space-6) var(--space-6); }
-    .solution__grid { grid-template-columns: repeat(4, 1fr); column-gap: var(--space-5); row-gap: var(--space-5); }
-  }
-
-  /* Engagements */
-  .engagements {
-    background: var(--color-base);
-    padding: var(--space-4) var(--space-3);
-  }
-
-  .engagements__inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .engagements__label {
-    margin: 0 0 var(--space-2);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-  }
-
-  .engagements__header {
-    margin: 0 0 var(--space-3);
-    font-family: var(--font-headline);
-    font-weight: 400;
-    font-size: clamp(1.65rem, 6vw, 2.75rem);
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    color: var(--color-ink);
-    max-width: 18ch;
-  }
-
-  .engagements__intro {
-    margin: 0 0 var(--space-6);
-    font-size: clamp(1rem, 2.5vw, 1.125rem);
-    line-height: 1.6;
-    color: rgba(44, 44, 42, 0.72);
-    max-width: 58ch;
-  }
-
-  .engagements__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: var(--space-5);
-  }
-
-  .engagement-item__title {
-    margin: 0 0 var(--space-2);
+  .service-card__title {
+    margin: 0 0 var(--space-4);
     font-family: var(--font-body);
     font-weight: 600;
     font-size: clamp(1.1875rem, 4.6vw, 1.5rem);
@@ -508,76 +464,49 @@
     color: var(--color-ink);
   }
 
-  .engagement-item__scope {
-    margin: 0 0 var(--space-4);
-    font-size: clamp(0.8125rem, 3.2vw, 0.9375rem);
-    line-height: 1.6;
-    color: rgba(44, 44, 42, 0.68);
-    max-width: 42ch;
+  .service-card__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
   }
 
-  .engagement-item__duration {
-    margin: 0;
-  }
-
-  .engagement-item__duration-label {
-    display: block;
+  .service-card__subhead {
     margin: 0 0 4px;
-    font-size: 12px;
+    font-size: 1.0625rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(44, 44, 42, 0.5);
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+    color: var(--color-ink);
   }
 
-  .engagement-item__duration-value {
-    display: block;
-    font-size: clamp(0.9375rem, 3.6vw, 1.0625rem);
-    font-weight: 400;
+  .service-card__line {
+    margin: 0;
+    font-size: 0.9375rem;
     line-height: 1.6;
     color: rgba(44, 44, 42, 0.68);
   }
 
-  .engagement-item--focused,
-  .engagement-item--full {
-    padding: var(--space-5) var(--space-4);
-    border: 1px solid rgba(44, 44, 42, 0.14);
-    border-top: 2px solid var(--hero-accent);
-    background: rgba(44, 44, 42, 0.028);
-    border-radius: 2px;
-  }
-
-  .engagement-item--full {
-    border-top-color: var(--color-accent);
-  }
-
-  .engagement-item:nth-child(2) { transition-delay: 0.05s; }
-
-  .engagements__callout {
-    margin: var(--space-5) 0 0;
-    font-size: clamp(0.9375rem, 3.2vw, 1.0625rem);
-    line-height: 1.6;
-    color: rgba(44, 44, 42, 0.72);
-    max-width: 58ch;
-  }
+  .service-card:nth-child(2) { transition-delay: 0.05s; }
 
   @media (min-width: 900px) {
-    .engagements { padding: var(--space-6) var(--space-6); }
+    .what-we-do { padding: var(--space-6) var(--space-6) var(--space-4); }
 
-    .engagements__grid {
+    .what-we-do__header { margin: 0 0 var(--space-6); }
+
+    .what-we-do__grid {
       grid-template-columns: 1fr 1fr;
       column-gap: var(--space-6);
+      row-gap: var(--space-5);
       align-items: stretch;
     }
 
-    .engagement-item--focused,
-    .engagement-item--full { padding: var(--space-6); }
+    .service-card { padding: var(--space-6); }
   }
 
-  /* Who We've Worked With */
+  /* Who We Work With */
   .who {
     background: var(--color-base);
-    padding: var(--space-4) var(--space-3);
+    padding: 48px var(--space-3) 10px;
   }
 
   .who__inner {
@@ -594,41 +523,76 @@
     color: var(--color-accent);
   }
 
+  .who__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: var(--space-3);
+    margin: 0 0 var(--space-4);
+  }
+
   .who__header {
     margin: 0 0 var(--space-3);
     font-family: var(--font-headline);
     font-weight: 400;
-    font-size: clamp(1.65rem, 6vw, 2.75rem);
+    font-size: clamp(1.4375rem, 7.44vw, 2.0625rem);
     line-height: 1.2;
     letter-spacing: -0.01em;
     color: var(--color-ink);
-    max-width: 20ch;
+    max-width: 24ch;
+  }
+
+  @media (min-width: 440px) {
+    .who__header {
+      font-size: 33px;
+    }
+  }
+
+  @media (min-width: 500px) {
+    .who__header {
+      font-size: clamp(1.65rem, 6vw, 2.75rem);
+    }
   }
 
   .who__intro {
-    margin: 0 0 var(--space-6);
-    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    margin: 0;
+    font-size: 1.125rem;
     line-height: 1.6;
     color: rgba(44, 44, 42, 0.72);
     max-width: 58ch;
   }
 
-  .who__grid {
+  .who__groups {
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: var(--space-5);
+    row-gap: var(--space-4);
   }
 
-  .who-column__title {
+  .audience-block {
+    padding: var(--space-4);
+    border: 1px solid rgba(44, 44, 42, 0.1);
+    border-radius: 2px;
+  }
+
+  .audience-block--acquirers {
+    background: rgba(240, 194, 75, 0.1);
+    border-color: rgba(240, 194, 75, 0.3);
+  }
+
+  .audience-block--leadership {
+    background: rgba(29, 158, 117, 0.06);
+    border-color: rgba(29, 158, 117, 0.2);
+  }
+
+  .audience-block__title {
     margin: 0 0 var(--space-2);
-    font-size: 13px;
+    font-size: 1.125rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--color-accent);
+    color: var(--color-ink);
   }
 
-  .who-column__list {
+  .audience-block__list {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -637,44 +601,13 @@
     gap: 8px;
   }
 
-  .who-column__list li {
-    font-size: clamp(0.9375rem, 3.6vw, 1.0625rem);
+  .audience-block__list li {
+    font-size: 1.0625rem;
     line-height: 1.6;
     color: var(--color-ink);
   }
 
-  .who-column:nth-child(2) { transition-delay: 0.05s; }
-  .who-column:nth-child(3) { transition-delay: 0.1s; }
-
-  .who__divider {
-    margin: var(--space-6) 0 var(--space-5);
-    border: 0;
-    border-top: 1px solid rgba(44, 44, 42, 0.12);
-  }
-
-  .who-israel__title {
-    margin: 0 0 var(--space-3);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-  }
-
-  .who-israel__list {
-    margin: 0 0 var(--space-5);
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .who-israel__list li {
-    font-size: clamp(0.9375rem, 3.6vw, 1.0625rem);
-    line-height: 1.6;
-    color: rgba(44, 44, 42, 0.72);
-  }
+  .audience-block:nth-child(2) { transition-delay: 0.05s; }
 
   .who__reference {
     margin: 0;
@@ -688,27 +621,25 @@
   }
 
   @media (min-width: 900px) {
-    .who { padding: var(--space-6) var(--space-6); }
+    .who { padding: var(--space-4) var(--space-6) var(--space-4); }
 
-    .who__grid {
-      grid-template-columns: repeat(3, 1fr);
-      column-gap: var(--space-6);
+    .who__layout { row-gap: var(--space-5); margin: 0 0 var(--space-6); }
+
+    .who__groups {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: var(--space-5);
     }
 
-    .who-israel__list {
-      flex-direction: row;
-      flex-wrap: wrap;
-      column-gap: var(--space-6);
-      row-gap: 8px;
-    }
+    .audience-block { padding: var(--space-5); }
 
+    .audience-block__title { font-size: 1rem; }
   }
 
   /* Why Choose Us & Leadership */
   .why-us {
     background: var(--color-dark);
     color: var(--color-dark-text);
-    padding: var(--space-4) var(--space-3);
+    padding: 48px var(--space-3) 10px;
   }
 
   .why-us__inner {
@@ -726,25 +657,41 @@
   }
 
   .why-us__header {
-    margin: 0 0 var(--space-6);
+    margin: 0 0 var(--space-3);
     font-family: var(--font-headline);
     font-weight: 400;
-    font-size: clamp(1.65rem, 6vw, 2.75rem);
+    font-size: clamp(1.4375rem, 7.44vw, 2.0625rem);
     line-height: 1.2;
     letter-spacing: -0.01em;
     color: var(--color-dark-text);
-    max-width: 18ch;
+    max-width: 20ch;
+  }
+
+  @media (min-width: 440px) {
+    .why-us__header {
+      font-size: 33px;
+    }
+  }
+
+  @media (min-width: 500px) {
+    .why-us__header {
+      font-size: clamp(1.65rem, 6vw, 2.75rem);
+    }
+  }
+
+  .why-us__intro {
+    margin: 0 0 var(--space-4);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba(249, 248, 245, 0.72);
+    max-width: 58ch;
   }
 
   .why-us__grid {
     display: grid;
-    grid-template-columns: 1fr;
-    row-gap: var(--space-5);
-    margin: 0 0 var(--space-6);
-  }
-
-  .differentiator {
-    max-width: 480px;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: var(--space-4);
+    column-gap: clamp(20px, 6vw, 40px);
   }
 
   .differentiator__headline {
@@ -758,7 +705,7 @@
 
   .differentiator__text {
     margin: 0;
-    font-size: clamp(0.875rem, 3.2vw, 0.9375rem);
+    font-size: 0.9375rem;
     line-height: 1.6;
     color: rgba(249, 248, 245, 0.68);
   }
@@ -766,27 +713,21 @@
   .differentiator:nth-child(2) { transition-delay: 0.05s; }
   .differentiator:nth-child(3) { transition-delay: 0.1s; }
   .differentiator:nth-child(4) { transition-delay: 0.15s; }
-  .differentiator:nth-child(5) { transition-delay: 0.2s; }
 
   .why-us__divider {
-    margin: 0 0 var(--space-6);
+    margin: 0 0 var(--space-4);
     border: 0;
     border-top: 1px solid rgba(249, 248, 245, 0.14);
   }
 
-  .partners__title {
-    margin: 0 0 var(--space-5);
-    font-family: var(--font-headline);
-    font-weight: 400;
-    font-size: clamp(1.3125rem, 5vw, 1.75rem);
-    line-height: 1.3;
-    color: var(--color-dark-text);
+  .partners {
+    margin: 0 0 var(--space-4);
   }
 
   .partners__layout {
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: var(--space-5);
+    row-gap: var(--space-4);
   }
 
   .partners__photo {
@@ -796,68 +737,95 @@
   .partners__photo img {
     display: block;
     width: 100%;
+    max-height: 300px;
     aspect-ratio: 4 / 5;
     object-fit: cover;
     object-position: 50% 22%;
     border: 1px solid rgba(249, 248, 245, 0.14);
   }
 
-  .partners__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: var(--space-5);
+  .partners__profiles {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
   }
 
-  .partner:nth-child(2) { transition-delay: 0.05s; }
+  .partner__divider {
+    margin: 0;
+    border: 0;
+    border-top: 1px solid rgba(249, 248, 245, 0.14);
+  }
+
+  .partner:nth-child(3) { transition-delay: 0.05s; }
 
   .partner__name {
-    margin: 0 0 8px;
+    margin: 0 0 4px;
     font-family: var(--font-body);
     font-weight: 600;
-    font-size: 1.0625rem;
+    font-size: 1.1875rem;
     color: var(--color-dark-text);
+  }
+
+  .partner__role {
+    margin: 0 0 10px;
+    font-style: italic;
+    font-size: 0.875rem;
+    color: rgba(249, 248, 245, 0.6);
   }
 
   .partner__bio {
     margin: 0;
-    font-size: clamp(0.875rem, 3.2vw, 0.9375rem);
+    font-size: 0.9375rem;
     line-height: 1.65;
     color: rgba(249, 248, 245, 0.75);
-    max-width: 46ch;
+    max-width: 52ch;
   }
 
   @media (min-width: 900px) {
-    .why-us { padding: var(--space-6) var(--space-6); }
+    .why-us { padding: var(--space-6) var(--space-6) var(--space-4); }
+
+    .partner__name { font-size: 1.0625rem; }
+
+    .why-us__intro { margin: 0 0 var(--space-6); }
 
     .why-us__grid {
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       column-gap: var(--space-5);
-      row-gap: var(--space-6);
     }
 
-    .differentiator { max-width: none; }
-    .differentiator:nth-child(1) { grid-column: 1 / 3; }
-    .differentiator:nth-child(2) { grid-column: 3 / 5; }
-    .differentiator:nth-child(3) { grid-column: 5 / 7; }
-    .differentiator:nth-child(4) { grid-column: 2 / 4; }
-    .differentiator:nth-child(5) { grid-column: 4 / 6; }
+    .why-us__divider { margin: 0 0 var(--space-6); }
+
+    .partners { margin: 0 0 var(--space-6); }
 
     .partners__layout {
-      grid-template-columns: minmax(220px, 300px) 1fr 1fr;
+      row-gap: var(--space-5);
+      grid-template-columns: minmax(220px, 300px) 1fr;
       column-gap: var(--space-6);
     }
 
     .partners__photo { max-width: none; }
+    .partners__photo img { max-height: none; }
 
-    .partners__grid {
-      display: contents;
+    .partners__profiles {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: var(--space-6);
+    }
+
+    .partner { flex: 1 1 0; }
+
+    .partner__divider { display: none; }
+
+    .partner:nth-child(3) {
+      border-left: 1px solid rgba(249, 248, 245, 0.14);
+      padding-left: var(--space-6);
     }
   }
 
   /* Contact */
   .contact {
     background: var(--color-base);
-    padding: var(--space-6) var(--space-3) var(--space-4);
+    padding: 25px var(--space-3) 10px;
     text-align: center;
   }
 
@@ -876,14 +844,26 @@
   }
 
   .contact__header {
-    margin: 0 auto var(--space-6);
+    margin: 0 auto var(--space-4);
     font-family: var(--font-headline);
     font-weight: 400;
-    font-size: clamp(1.65rem, 6vw, 2.75rem);
+    font-size: clamp(1.4375rem, 7.44vw, 2.0625rem);
     line-height: 1.25;
     letter-spacing: -0.01em;
     color: var(--color-ink);
     max-width: 22ch;
+  }
+
+  @media (min-width: 440px) {
+    .contact__header {
+      font-size: 33px;
+    }
+  }
+
+  @media (min-width: 500px) {
+    .contact__header {
+      font-size: clamp(1.65rem, 6vw, 2.75rem);
+    }
   }
 
   .contact__actions {
@@ -931,8 +911,10 @@
 
   @media (min-width: 900px) {
     .contact {
-      padding: var(--space-8) var(--space-6) var(--space-6);
+      padding: var(--space-4) var(--space-6) var(--space-4);
     }
+
+    .contact__header { margin: 0 auto var(--space-6); }
 
     .contact__actions {
       flex-direction: row;
@@ -947,10 +929,9 @@
 <nav class="nav">
   <a class="nav__logo" href="#hero">Beigale Insights Ltd.</a>
   <ul class="nav__links">
-    <li><a href="#solution">Solution</a></li>
-    <li><a href="#engagements">Engagements</a></li>
-    <li><a href="#who">Coverage</a></li>
-    <li><a href="#why">About Us</a></li>
+    <li><a href="#what-we-do">What We Do</a></li>
+    <li><a href="#who">Who We Work With</a></li>
+    <li><a href="#why">About Beigale</a></li>
   </ul>
   <div class="nav__actions">
     <a class="nav__cta" href="#contact">Contact Us</a>
@@ -969,10 +950,9 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#solution">Solution</a>
-  <a href="#engagements">Engagements</a>
-  <a href="#who">Coverage</a>
-  <a href="#why">About Us</a>
+  <a href="#what-we-do">What We Do</a>
+  <a href="#who">Who We Work With</a>
+  <a href="#why">About Beigale</a>
 </div>
 
 <main>
@@ -1000,161 +980,110 @@
     </svg>
   </div>
   <div class="hero__inner">
-    <h1>Independent commercial due diligence for mid-market M&amp;A</h1>
+    <h1>Commercial diligence and post-deal value creation</h1>
     <p class="hero__sub">
-      We independently assess the <span class="commercial">commercial</span> engine behind the deal.
+      Independent commercial <span class="accent">assessment</span> before the deal.<br>Focused commercial <span class="accent">action</span> after it.
     </p>
     <a class="hero__cta" href="#contact">Contact Us</a>
   </div>
 </header>
 
-<section class="solution" id="solution">
-  <div class="solution__inner">
-    <p class="solution__label">Solution</p>
-    <h2 class="solution__header reveal">Confirming the deal is worth it</h2>
-    <p class="solution__intro reveal">We independently test whether the target's commercial engine can deliver the revenue, growth and profitability the deal is priced on.</p>
+<section class="what-we-do" id="what-we-do">
+  <div class="what-we-do__inner">
+    <p class="what-we-do__label">What We Do</p>
+    <h2 class="what-we-do__header reveal">Commercial&nbsp;clarity&nbsp;<br class="mobile-break">before&nbsp;the&nbsp;deal.<br>Commercial&nbsp;progress&nbsp;<br class="mobile-break">after&nbsp;it.</h2>
 
-    <div class="solution__grid">
-      <article class="pillar reveal">
-        <div class="pillar__icon">
+    <div class="what-we-do__grid">
+      <article class="service-card service-card--dd reveal">
+        <div class="service-card__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="7" width="18" height="12" rx="1.5"/>
-            <path d="M8 7V5.5A1.5 1.5 0 0 1 9.5 4h5A1.5 1.5 0 0 1 16 5.5V7"/>
-            <path d="M3 12h18"/>
+            <path d="M6 3.5h9l3 3v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-16a1 1 0 0 1 1-1Z"/>
+            <path d="M15 3.5v3h3"/>
+            <path d="M8.5 13.5l2.2 2.2 4.8-5"/>
           </svg>
         </div>
-        <h3 class="pillar__headline">Assets</h3>
-        <p class="pillar__subtitle">What you are really acquiring</p>
-        <ul class="pillar__list">
-          <li>Customer base and relationships</li>
-          <li>Commercial team and tools</li>
-          <li>Contracts, pipeline and partnerships</li>
-          <li>Market and competitive position</li>
-        </ul>
+        <h3 class="service-card__title">Commercial Due Diligence</h3>
+        <div class="service-card__list">
+          <div class="service-card__item">
+            <h4 class="service-card__subhead">What you are really acquiring</h4>
+            <p class="service-card__line">The customers, relationships, commercial capabilities and market position underpinning value.</p>
+          </div>
+          <div class="service-card__item">
+            <h4 class="service-card__subhead">How durable it is</h4>
+            <p class="service-card__line">Revenue quality, customer concentration and the risks and dependencies that could drive decline.</p>
+          </div>
+          <div class="service-card__item">
+            <h4 class="service-card__subhead">Our independent outlook</h4>
+            <p class="service-card__line">Independent bottom-up projections for growth, pricing, margins and EBITDA.</p>
+          </div>
+          <div class="service-card__item">
+            <h4 class="service-card__subhead">The value of combining</h4>
+            <p class="service-card__line">Commercial synergy potential and the priorities that matter most after close.</p>
+          </div>
+        </div>
       </article>
 
-      <article class="pillar reveal">
-        <div class="pillar__icon">
+      <article class="service-card service-card--value reveal">
+        <div class="service-card__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3.5 19 6.5v5.2c0 4.4-3 7.9-7 9-4-1.1-7-4.6-7-9V6.5Z"/>
+            <path d="M4 16.5 9.5 11l4 3.5L20 7.5"/>
+            <path d="M14.5 7H20.5V13"/>
           </svg>
         </div>
-        <h3 class="pillar__headline">Durability</h3>
-        <p class="pillar__subtitle">risk of decline post-acquisition</p>
-        <ul class="pillar__list">
-          <li>Revenue quality</li>
-          <li>Customer concentration</li>
-          <li>Key commercial risks and dependencies</li>
-        </ul>
-      </article>
-
-      <article class="pillar reveal">
-        <div class="pillar__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3.5 16.5 9 11l4 3.5 7.5-8"/>
-            <path d="M16.5 6.5H20.5V10.5"/>
-          </svg>
+        <h3 class="service-card__title">Post-Deal Commercial Value Creation</h3>
+        <div class="service-card__list">
+          <div class="service-card__item">
+            <h4 class="service-card__subhead">Protect what was acquired</h4>
+            <p class="service-card__line">Secure critical revenue, customer relationships, people and commercial assets.</p>
+          </div>
+          <div class="service-card__item">
+            <h4 class="service-card__subhead">Address what could undermine value</h4>
+            <p class="service-card__line">Resolve the most important commercial risks, dependencies and execution gaps.</p>
+          </div>
+          <div class="service-card__item">
+            <h4 class="service-card__subhead">Adapt the commercial model</h4>
+            <p class="service-card__line">Refine positioning, target customers, channels and go-to-market for the new strategic context.</p>
+          </div>
+          <div class="service-card__item">
+            <h4 class="service-card__subhead">Prove the value-creation thesis</h4>
+            <p class="service-card__line">Validate growth assumptions, establish repeatable commercial motions and realize synergies.</p>
+          </div>
         </div>
-        <h3 class="pillar__headline">Outlook</h3>
-        <p class="pillar__subtitle">What the forecast actually looks like</p>
-        <ul class="pillar__list">
-          <li>Growth-plan credibility</li>
-          <li>Independent bottom-up growth outlook</li>
-          <li>Pricing, margins and EBITDA achievability</li>
-        </ul>
-      </article>
-
-      <article class="pillar reveal">
-        <div class="pillar__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="9.5" cy="12" r="6"/>
-            <circle cx="14.5" cy="12" r="6"/>
-          </svg>
-        </div>
-        <h3 class="pillar__headline">Synergies</h3>
-        <p class="pillar__subtitle">The value of combining</p>
-        <ul class="pillar__list">
-          <li>Synergy potential</li>
-          <li>Post-close priorities</li>
-        </ul>
       </article>
     </div>
-  </div>
-</section>
-
-<section class="engagements" id="engagements">
-  <div class="engagements__inner">
-    <p class="engagements__label">Engagements</p>
-    <h2 class="engagements__header reveal">Choose your depth</h2>
-    <p class="engagements__intro reveal">Whether you need a fast read on the key risks or the complete commercial picture, we scope the engagement to match your timeline and decision.</p>
-
-    <div class="engagements__grid">
-      <article class="engagement-item engagement-item--focused reveal">
-        <h3 class="engagement-item__title">Focused Commercial Risk Assessment</h3>
-        <p class="engagement-item__scope">Commercial assets and durability — the risk questions that most affect the investment decision.</p>
-        <p class="engagement-item__duration">
-          <span class="engagement-item__duration-label">Estimated duration</span>
-          <span class="engagement-item__duration-value">~3 weeks</span>
-        </p>
-      </article>
-
-      <article class="engagement-item engagement-item--full reveal">
-        <h3 class="engagement-item__title">Full Commercial Due Diligence</h3>
-        <p class="engagement-item__scope">All four: assets, durability, outlook and synergies — the complete commercial picture.</p>
-        <p class="engagement-item__duration">
-          <span class="engagement-item__duration-label">Estimated duration</span>
-          <span class="engagement-item__duration-value">~6–8 weeks</span>
-        </p>
-      </article>
-    </div>
-
-    <p class="engagements__callout reveal">Both engagements conclude with a comprehensive written report and a live readout to the deal team, fully aligned with signing deadlines.</p>
   </div>
 </section>
 
 <section class="who" id="who">
   <div class="who__inner">
-    <p class="who__label">Coverage</p>
-    <h2 class="who__header reveal">Who We've Worked With</h2>
-    <p class="who__intro reveal">We've supported investors, acquirers and advisors across domestic and cross-border commercial due diligence engagements.</p>
+    <p class="who__label">Who We Work With</p>
 
-    <div class="who__grid">
-      <div class="who-column reveal">
-        <h3 class="who-column__title">Investors</h3>
-        <ul class="who-column__list">
-          <li>Private equity firms</li>
-          <li>Venture capital</li>
-          <li>Portfolio companies</li>
-        </ul>
+    <div class="who__layout">
+      <div class="who__intro-block reveal">
+        <h2 class="who__header">For&nbsp;acquirers&nbsp;and<br class="mobile-break">&nbsp;value&#8209;creation&nbsp;teams</h2>
+        <p class="who__intro">We support buyers before the deal and leadership teams after close.</p>
       </div>
 
-      <div class="who-column reveal">
-        <h3 class="who-column__title">Corporate Acquirers</h3>
-        <ul class="who-column__list">
-          <li>Strategic buyers</li>
-          <li>Corporate development teams</li>
-        </ul>
+      <div class="who__groups">
+        <div class="audience-block audience-block--acquirers reveal">
+          <h3 class="audience-block__title">Acquirers</h3>
+          <ul class="audience-block__list">
+            <li>Corporate acquirers and corporate-development teams</li>
+            <li>Private equity firms and portfolio companies</li>
+            <li>First-time and active buyers</li>
+            <li>Family offices</li>
+          </ul>
+        </div>
+
+        <div class="audience-block audience-block--leadership reveal">
+          <h3 class="audience-block__title">Leadership Teams</h3>
+          <ul class="audience-block__list">
+            <li>Boards, CEOs and founders</li>
+            <li>Management and commercial teams</li>
+            <li>Teams leading post-acquisition integration and growth</li>
+          </ul>
+        </div>
       </div>
-
-      <div class="who-column reveal">
-        <h3 class="who-column__title">Deal Advisors</h3>
-        <ul class="who-column__list">
-          <li>M&amp;A lawyers</li>
-          <li>Investment banks</li>
-          <li>Transaction advisors</li>
-        </ul>
-      </div>
-    </div>
-
-    <hr class="who__divider reveal">
-
-    <div class="who-israel reveal">
-      <h3 class="who-israel__title">Israel Focus</h3>
-      <ul class="who-israel__list">
-        <li>Israeli acquirers buying internationally</li>
-        <li>International acquirers buying Israeli companies</li>
-        <li>Domestic Israeli transactions</li>
-      </ul>
     </div>
 
     <p class="who__reference reveal">— References available upon request —</p>
@@ -1163,55 +1092,54 @@
 
 <section class="why-us" id="why">
   <div class="why-us__inner">
-    <p class="why-us__label">About Us</p>
-    <h2 class="why-us__header reveal">Why Choose Us</h2>
+    <p class="why-us__label">About Beigale</p>
+    <h2 class="why-us__header reveal">Senior&nbsp;commercial&nbsp;judgment.<br>Hands-on support.</h2>
+    <p class="why-us__intro reveal">Decades of commercial leadership before and after the deal.</p>
 
-    <div class="why-us__grid">
-      <div class="differentiator reveal">
-        <h3 class="differentiator__headline">Commercial operators</h3>
-        <p class="differentiator__text">Senior executives who have built businesses, led commercial organizations and made growth decisions. Not career analysts.</p>
-      </div>
+    <div class="partners">
+      <div class="partners__layout">
+        <div class="partners__photo reveal">
+          <img src="assets/partners.png" alt="Hagai Heshes and Guy Spira, co-founders of Beigale Insights">
+        </div>
+        <div class="partners__profiles">
+          <div class="partner reveal">
+            <h3 class="partner__name">Hagai Heshes</h3>
+            <p class="partner__role">Commercial strategy, positioning and go-to-market</p>
+            <p class="partner__bio">Hagai has more than 25 years of experience helping technology and healthcare companies sharpen their strategy, positioning and go-to-market. He has held senior marketing and product-marketing leadership roles and works closely with founders, executives and commercial teams on growth, market entry, category creation and commercial transformation. Hagai holds a master's degree from the University of Pennsylvania.</p>
+          </div>
 
-      <div class="differentiator reveal">
-        <h3 class="differentiator__headline">Independent judgment</h3>
-        <p class="differentiator__text">We test the commercial case objectively. Buy-side only, with no success fees tied to deal completion.</p>
-      </div>
+          <hr class="partner__divider">
 
-      <div class="differentiator reveal">
-        <h3 class="differentiator__headline">Partner-led throughout</h3>
-        <p class="differentiator__text">Both founders lead every interview, analysis and recommendation. Nothing is delegated to junior teams.</p>
-      </div>
-
-      <div class="differentiator reveal">
-        <h3 class="differentiator__headline">Built for mid-market deals</h3>
-        <p class="differentiator__text">Senior-level commercial diligence, scoped and paced for transactions where speed, focus and direct partner involvement matter.</p>
-      </div>
-
-      <div class="differentiator reveal">
-        <h3 class="differentiator__headline">Decision-oriented</h3>
-        <p class="differentiator__text">Clear commercial conclusions, practical implications and a point of view, not just observations.</p>
+          <div class="partner reveal">
+            <h3 class="partner__name">Guy Spira</h3>
+            <p class="partner__role">Commercial diligence, strategy and business building</p>
+            <p class="partner__bio">Guy has more than 25 years of experience working with companies, acquirers and leadership teams on commercial strategy, growth and business development. He brings a structured, commercially grounded perspective to assessing businesses, identifying risks and opportunities, and translating strategic priorities into focused action and measurable progress. Guy holds an MBA from Stanford Graduate School of Business.</p>
+          </div>
+        </div>
       </div>
     </div>
 
     <hr class="why-us__divider reveal">
 
-    <div class="partners">
-      <h3 class="partners__title reveal">The Partners You'll Work With</h3>
-      <div class="partners__layout">
-        <div class="partners__photo reveal">
-          <img src="assets/partners.png" alt="Hagai Heshes and Guy Spira, co-founders of Beigale Insights">
-        </div>
-        <div class="partners__grid">
-          <div class="partner reveal">
-            <h4 class="partner__name">Hagai Heshes</h4>
-            <p class="partner__bio">University of Pennsylvania graduate with 25+ years in product strategy, marketing and go-to-market leadership across technology, healthcare, defense and consumer markets. Hagai has led commercial strategy, U.S. market activity and product launches, and brings firsthand M&amp;A experience.</p>
-          </div>
+    <div class="why-us__grid">
+      <div class="differentiator reveal">
+        <h3 class="differentiator__headline">Independent judgment</h3>
+        <p class="differentiator__text">A clear-eyed commercial view, without pressure to validate the deal thesis.</p>
+      </div>
 
-          <div class="partner reveal">
-            <h4 class="partner__name">Guy Spira</h4>
-            <p class="partner__bio">Stanford MBA with 25+ years spanning entrepreneurship, executive leadership and strategic advisory. Guy has founded and scaled companies, served as CEO and CRO, and advised management teams and investors on strategy, business development and commercial due diligence.</p>
-          </div>
-        </div>
+      <div class="differentiator reveal">
+        <h3 class="differentiator__headline">Operators, not just analysts</h3>
+        <p class="differentiator__text">Hands-on experience building, positioning and growing businesses, and working alongside management to solve commercial problems.</p>
+      </div>
+
+      <div class="differentiator reveal">
+        <h3 class="differentiator__headline">Candid when it matters</h3>
+        <p class="differentiator__text">We say what we believe is commercially true, even when it challenges assumptions or calls for difficult decisions.</p>
+      </div>
+
+      <div class="differentiator reveal">
+        <h3 class="differentiator__headline">Built around the need</h3>
+        <p class="differentiator__text">Focused, fast-moving engagements tailored to the specific commercial questions and priorities at hand.</p>
       </div>
     </div>
   </div>
@@ -1220,7 +1148,7 @@
 <section class="contact" id="contact">
   <div class="contact__inner">
     <p class="contact__label">Contact</p>
-    <h2 class="contact__header reveal">You have a deal in process. Let's talk about the commercial case.</h2>
+    <h2 class="contact__header reveal">Before&nbsp;or&nbsp;after&nbsp;the&nbsp;deal,<br class="mobile-break">&nbsp;let's&nbsp;talk.</h2>
 
     <div class="contact__actions">
       <div class="contact__action reveal">
