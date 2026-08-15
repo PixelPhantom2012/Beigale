@@ -217,17 +217,29 @@
   .nav__toggle[aria-expanded="true"] .icon-close { display: block; }
 
   .mobile-menu {
-    display: none;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 0fr;
     position: sticky;
     top: 64px;
     z-index: 9;
     background: var(--color-base);
-    border-bottom: 1px solid rgba(44, 44, 42, 0.08);
-    padding: 0 var(--space-3) var(--space-2);
+    border-bottom: 1px solid transparent;
+    opacity: 0;
+    transition: grid-template-rows 0.28s ease, opacity 0.22s ease, border-color 0.28s ease;
   }
 
-  .mobile-menu.is-open { display: flex; }
+  .mobile-menu.is-open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    border-bottom-color: rgba(44, 44, 42, 0.08);
+  }
+
+  .mobile-menu__inner {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--space-3) var(--space-2);
+  }
 
   .mobile-menu a {
     display: flex;
@@ -840,6 +852,29 @@
     text-align: center;
   }
 
+  .site-footer {
+    background: var(--color-base);
+    border-top: 1px solid rgba(44, 44, 42, 0.08);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(44, 44, 42, 0.45);
+  }
+
+  .site-footer a {
+    color: rgba(44, 44, 42, 0.45);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .site-footer a:hover {
+    color: var(--color-accent);
+  }
+
   .contact__inner {
     max-width: 1200px;
     margin: 0 auto;
@@ -932,6 +967,12 @@
       justify-content: center;
       gap: var(--space-6);
     }
+
+    .site-footer {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: var(--space-3) var(--space-6);
+    }
   }
 </style>
 </head>
@@ -961,9 +1002,11 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#what-we-do">What We Do</a>
-  <a href="#who">Who We Work With</a>
-  <a href="#why">About Beigale</a>
+  <div class="mobile-menu__inner">
+    <a href="#what-we-do">What We Do</a>
+    <a href="#who">Who We Work With</a>
+    <a href="#why">About Beigale</a>
+  </div>
 </div>
 
 <main>
@@ -1175,6 +1218,11 @@
   </div>
 </section>
 </main>
+
+<footer class="site-footer">
+  <span>&copy; 2026 Beigale Insights Ltd. All rights reserved.</span>
+  <a href="https://wa.me/972559810928" target="_blank" rel="noopener">Designed &amp; built by TH Solutions</a>
+</footer>
 
 <script>
   var revealEls = document.querySelectorAll('.reveal');
