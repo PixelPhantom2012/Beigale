@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-19T00:00:00Z",
+  "title": "Design System: Beigale Insights",
+  "extensions": {
+    "colorMeta": {
+      "accent": { "role": "primary", "displayName": "Ledger Teal", "canonical": "#1D9E75", "tonalRamp": ["#0E4F3A", "#146450", "#1A8062", "#1D9E75", "#4CB08C", "#7CC2A6", "#ADD5C1", "#DEEBE1"] },
+      "hero-accent": { "role": "secondary", "displayName": "Signature Gold", "canonical": "#F0C24B", "tonalRamp": ["#5C4712", "#8A6B1B", "#B88F24", "#D9AB3C", "#F0C24B", "#F4D072", "#F8DE9C", "#FBECC6"] },
+      "base": { "role": "neutral", "displayName": "Warm Paper White", "canonical": "#F9F8F5", "tonalRamp": ["#2C2C2A", "#4A4A47", "#6E6E6A", "#9A9A95", "#C4C4BE", "#E4E3DE", "#F1F0EC", "#F9F8F5"] },
+      "dark": { "role": "neutral", "displayName": "Boardroom Charcoal", "canonical": "#2C2C2A", "tonalRamp": ["#0F0F0E", "#1C1C1B", "#2C2C2A", "#454543", "#66665F", "#8C8C84", "#B5B5AC", "#DCDCD5"] },
+      "hero-bg": { "role": "neutral", "displayName": "Near-Black Oak", "canonical": "#211F1A", "tonalRamp": ["#0A0908", "#151311", "#211F1A", "#3A362F", "#5C564A", "#847C6C", "#B0A895", "#DCD5C6"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero H1 only. The single largest statement on the page." },
+      "headline": { "displayName": "Headline", "purpose": "Section headers (e.g. Solution, Engagements)." },
+      "title": { "displayName": "Title", "purpose": "Pillar and engagement-card sub-headlines, Inter not Newsreader." },
+      "body": { "displayName": "Body", "purpose": "Hero subhead and section intros, capped at 58-65ch." },
+      "label": { "displayName": "Label", "purpose": "Uppercase eyebrow labels and the engagement duration tag." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "rise", "value": "translateY(16px) to translateY(0), opacity 0 to 1, 0.8s ease-out", "purpose": "Hero H1 and subhead entrance on load." },
+      { "name": "reveal", "value": "opacity 0.7s ease, transform 0.7s ease, translateY(16px) to none", "purpose": "Scroll-triggered reveal for section content below the hero." }
+    ],
+    "breakpoints": [
+      { "name": "desktop", "value": "900px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (Nav CTA)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Outlined ghost button, inverts to solid ink fill on hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#contact\">Get in Touch</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; font-family: Inter, sans-serif; font-size: 14px; font-weight: 500; color: #2C2C2A; background: transparent; border: 1px solid rgba(44,44,42,0.3); padding: 9px 16px; border-radius: 2px; text-decoration: none; transition: background 0.15s ease, color 0.15s ease; } .ds-btn-primary:hover { background: #2C2C2A; color: #F9F8F5; } .ds-btn-primary:focus-visible { outline: 2px solid #1D9E75; outline-offset: 2px; border-radius: 2px; }"
+    },
+    {
+      "name": "Pillar Icon",
+      "kind": "custom",
+      "refersTo": "pillar-icon",
+      "description": "Monochrome line icon above a pillar headline, 1.5px stroke, no fill.",
+      "html": "<div class=\"ds-pillar-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"9.5\" cy=\"12\" r=\"6\"/><circle cx=\"14.5\" cy=\"12\" r=\"6\"/></svg></div>",
+      "css": ".ds-pillar-icon { width: 32px; height: 32px; color: #1D9E75; margin-bottom: 32px; } .ds-pillar-icon svg { width: 100%; height: 100%; display: block; }"
+    },
+    {
+      "name": "Eyebrow Label",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Uppercase tracked section label, e.g. 'Solution', 'Engagements'.",
+      "html": "<p class=\"ds-eyebrow\">Solution</p>",
+      "css": ".ds-eyebrow { font-family: Inter, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1D9E75; margin: 0; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Muted-to-full-ink link used in the sticky top nav.",
+      "html": "<a class=\"ds-nav-link\" href=\"#solution\">Solution</a>",
+      "css": ".ds-nav-link { font-family: Inter, sans-serif; font-size: 14px; color: rgba(44,44,42,0.65); text-decoration: none; transition: color 0.15s ease; } .ds-nav-link:hover { color: #2C2C2A; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Closing Binder",
+    "overview": "Beigale Insights reads like the tabbed, precisely-assembled binder handed across the table at a deal's close: paper-white pages, one serif headline per section, everything else set in a quiet, structured sans. Nothing is decorative because nothing needs to persuade through decoration; the firm's confidence comes from the operators, not from the interface. The system is built for a reader who is mid-diligence, skimming fast, and judging seniority from restraint rather than volume. It explicitly rejects SaaS visual grammar: no gradient hero metrics, no filled icon sets, no card-grid sameness, no motion for its own sake. The only departure from flat paper-white is two deliberately scoped dark sections (Hero, About) that mark identity shifts, not decoration.",
+    "keyCharacteristics": [
+      "Paper-flat: no shadows, no elevation, depth comes from background contrast and whitespace only",
+      "One serif voice (Newsreader) reserved strictly for headlines; everything else is Inter",
+      "Two accent colors, each locked to a background: teal on light, gold on dark, never mixed",
+      "Generous, 8px-based rhythm; short lines everywhere, nothing reads as a text block"
+    ],
+    "rules": [
+      { "name": "The Background-Locks-the-Accent Rule", "body": "Teal appears only on Warm Paper White sections; gold appears only on Boardroom Charcoal / Near-Black Oak sections. They never cross.", "section": "colors" },
+      { "name": "The Sparse-Accent Rule", "body": "Both accents are used for icons, eyebrow labels, links, and single-word emphasis. Neither is ever a background, a button fill, or a large shape.", "section": "colors" },
+      { "name": "The One-Serif Rule", "body": "Newsreader appears only at Display and Headline tier. Every other piece of type, including pillar and card headlines, is Inter.", "section": "typography" },
+      { "name": "The No-Shadow Rule", "body": "Nothing in this system casts a shadow. Separation comes from whitespace, background contrast, and hairline 1px borders, never elevation.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do lock Ledger Teal to light sections and Signature Gold to dark sections, never crossed.",
+      "Do reserve Newsreader for Display and Headline tiers only.",
+      "Do cap paragraph copy at 58-65ch and keep every section scannable.",
+      "Do use the 8px-based spacing scale for all vertical rhythm.",
+      "Do keep dark backgrounds limited to Hero and About only."
+    ],
+    "donts": [
+      "Don't use teal or gold as a background fill, button fill, or large shape.",
+      "Don't put Signature Gold on a light background; it is unreadable there.",
+      "Don't add a lead-capture form.",
+      "Don't add shadows, gradients, gradient text, or glassmorphism.",
+      "Don't use decorative or filled icon sets.",
+      "Don't wrap pillars, engagements, or credibility points in card shells.",
+      "Don't add motion beyond the existing rise-in and scroll-reveal transitions."
+    ]
+  }
+}
