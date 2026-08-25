@@ -469,7 +469,8 @@
     margin-bottom: var(--space-3);
   }
 
-  .service-card--dd .service-card__icon { color: var(--hero-accent); }
+  .service-card--dd .service-card__icon,
+  .service-card--vcp .service-card__icon { color: var(--hero-accent); }
   .service-card--value .service-card__icon { color: var(--color-accent); }
 
   .service-card__icon svg {
@@ -478,8 +479,17 @@
     display: block;
   }
 
+  .service-card__step {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: rgba(44, 44, 42, 0.32);
+  }
+
   .service-card__title {
-    margin: 0 0 var(--space-4);
+    margin: 0 0 var(--space-3);
     font-family: var(--font-body);
     font-weight: 600;
     font-size: clamp(1.1875rem, 4.6vw, 1.5rem);
@@ -487,29 +497,44 @@
     color: var(--color-ink);
   }
 
-  .service-card__list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-  }
-
-  .service-card__subhead {
-    margin: 0 0 4px;
-    font-size: 1.0625rem;
+  .service-card__tagline {
+    margin: 0 0 var(--space-3);
+    font-size: 0.9375rem;
     font-weight: 600;
-    line-height: 1.35;
-    letter-spacing: 0.01em;
+    line-height: 1.4;
     color: var(--color-ink);
   }
 
-  .service-card__line {
+  .service-card__bullets {
     margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .service-card__bullets li {
+    position: relative;
+    padding-left: 14px;
     font-size: 0.9375rem;
-    line-height: 1.6;
+    line-height: 1.55;
     color: rgba(44, 44, 42, 0.68);
   }
 
+  .service-card__bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(44, 44, 42, 0.35);
+  }
+
   .service-card:nth-child(2) { transition-delay: 0.05s; }
+  .service-card:nth-child(3) { transition-delay: 0.1s; }
 
   @media (min-width: 900px) {
     .what-we-do { padding: var(--space-6) var(--space-6) var(--space-4); }
@@ -517,8 +542,8 @@
     .what-we-do__header { margin: 0 0 var(--space-6); }
 
     .what-we-do__grid {
-      grid-template-columns: 1fr 1fr;
-      column-gap: var(--space-6);
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: var(--space-5);
       row-gap: var(--space-5);
       align-items: stretch;
     }
@@ -1034,9 +1059,9 @@
     </svg>
   </div>
   <div class="hero__inner">
-    <h1>Commercial diligence and post-deal value creation</h1>
+    <h1>Commercial diligence. Value creation.</h1>
     <p class="hero__sub">
-      Independent commercial <span class="accent">assessment</span> before the deal.<br>Focused commercial <span class="accent">action</span> after it.
+      <span class="accent">Pressure-test</span> the deal. <span class="accent">Define</span> the value. <span class="accent">Deliver</span> it after close.
     </p>
     <a class="hero__cta" href="#contact">Contact Us</a>
   </div>
@@ -1056,25 +1081,33 @@
             <path d="M8.5 13.5l2.2 2.2 4.8-5"/>
           </svg>
         </div>
+        <span class="service-card__step">01</span>
         <h3 class="service-card__title">Commercial Due Diligence</h3>
-        <div class="service-card__list">
-          <div class="service-card__item">
-            <h4 class="service-card__subhead">What you are really acquiring</h4>
-            <p class="service-card__line">The customers, relationships, commercial capabilities and market position underpinning value.</p>
-          </div>
-          <div class="service-card__item">
-            <h4 class="service-card__subhead">How durable it is</h4>
-            <p class="service-card__line">Revenue quality, customer concentration and the risks and dependencies that could drive decline.</p>
-          </div>
-          <div class="service-card__item">
-            <h4 class="service-card__subhead">Our independent outlook</h4>
-            <p class="service-card__line">Independent bottom-up projections for growth, pricing, margins and EBITDA.</p>
-          </div>
-          <div class="service-card__item">
-            <h4 class="service-card__subhead">The value of combining</h4>
-            <p class="service-card__line">Commercial synergy potential and the priorities that matter most after close.</p>
-          </div>
+        <p class="service-card__tagline">Know what you're really acquiring</p>
+        <ul class="service-card__bullets">
+          <li>Commercial assets and strategic fit</li>
+          <li>Revenue and customer durability</li>
+          <li>Independent growth, margin and EBITDA outlook</li>
+          <li>Synergies, risks and dependencies</li>
+        </ul>
+      </article>
+
+      <article class="service-card service-card--vcp reveal">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="8.5"/>
+            <path d="M15 9l-2 5-5 2 2-5 5-2Z"/>
+          </svg>
         </div>
+        <span class="service-card__step">02</span>
+        <h3 class="service-card__title">Value Creation Plan</h3>
+        <p class="service-card__tagline">Know where the value will come from</p>
+        <ul class="service-card__bullets">
+          <li>Translate the deal thesis into commercial priorities</li>
+          <li>Pressure-test growth and synergy assumptions</li>
+          <li>Define the key value-creation initiatives</li>
+          <li>Set priorities, milestones and ownership</li>
+        </ul>
       </article>
 
       <article class="service-card service-card--value reveal">
@@ -1084,25 +1117,15 @@
             <path d="M14.5 7H20.5V13"/>
           </svg>
         </div>
-        <h3 class="service-card__title">Post-Deal Commercial Value Creation</h3>
-        <div class="service-card__list">
-          <div class="service-card__item">
-            <h4 class="service-card__subhead">Protect what was acquired</h4>
-            <p class="service-card__line">Secure critical revenue, customer relationships, people and commercial assets.</p>
-          </div>
-          <div class="service-card__item">
-            <h4 class="service-card__subhead">Address what could undermine value</h4>
-            <p class="service-card__line">Resolve the most important commercial risks, dependencies and execution gaps.</p>
-          </div>
-          <div class="service-card__item">
-            <h4 class="service-card__subhead">Adapt the commercial model</h4>
-            <p class="service-card__line">Refine positioning, target customers, channels and go-to-market for the new strategic context.</p>
-          </div>
-          <div class="service-card__item">
-            <h4 class="service-card__subhead">Prove the value-creation thesis</h4>
-            <p class="service-card__line">Validate growth assumptions, establish repeatable commercial motions and realize synergies.</p>
-          </div>
-        </div>
+        <span class="service-card__step">03</span>
+        <h3 class="service-card__title">Post-Deal Value Creation</h3>
+        <p class="service-card__tagline">Turn the plan into measurable progress</p>
+        <ul class="service-card__bullets">
+          <li>Protect critical revenue and relationships</li>
+          <li>Address commercial gaps and dependencies</li>
+          <li>Adapt positioning, channels and GTM</li>
+          <li>Prove repeatable growth motions and realize synergies</li>
+        </ul>
       </article>
     </div>
   </div>
@@ -1114,7 +1137,7 @@
 
     <div class="who__layout">
       <div class="who__intro-block reveal">
-        <h2 class="who__header">For&nbsp;acquirers&nbsp;and<br class="mobile-break">&nbsp;value&#8209;creation&nbsp;teams</h2>
+        <h2 class="who__header">For&nbsp;acquirers&nbsp;and<br class="mobile-break">&nbsp;leadership&nbsp;teams</h2>
         <p class="who__intro">We support buyers before the deal and leadership teams after close.</p>
       </div>
 
@@ -1123,9 +1146,10 @@
           <h3 class="audience-block__title">Acquirers</h3>
           <ul class="audience-block__list">
             <li>Corporate acquirers and corporate-development teams</li>
-            <li>Private equity firms and portfolio companies</li>
-            <li>First-time and active buyers</li>
-            <li>Family offices</li>
+            <li>Emerging and lower-middle-market private equity firms</li>
+            <li>Growth and late-stage investors supporting portfolio-company acquisitions</li>
+            <li>Portfolio companies pursuing bolt-on acquisitions</li>
+            <li>Family offices and other active buyers</li>
           </ul>
         </div>
 
@@ -1134,7 +1158,7 @@
           <ul class="audience-block__list">
             <li>Boards, CEOs and founders</li>
             <li>Management and commercial teams</li>
-            <li>Teams leading post-acquisition integration and growth</li>
+            <li>Teams responsible for post-acquisition value creation</li>
           </ul>
         </div>
       </div>
