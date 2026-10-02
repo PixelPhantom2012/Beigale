@@ -12,8 +12,8 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Beigale Insights — Commercial Due Diligence &amp; Value Creation</title>
-<meta name="description" content="Beigale Insights — independent commercial advisory led by Hagai Heshes and Guy Spira. Due diligence before the deal, value creation after.">
+<title>Beigale Insights - Commercial Due Diligence &amp; Value Creation</title>
+<meta name="description" content="Beigale Insights - independent commercial advisory led by Hagai Heshes and Guy Spira. Due diligence before the deal, value creation after.">
 <link rel="canonical" href="https://www.beigale.com/">
 
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -21,16 +21,16 @@
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Beigale Insights">
-<meta property="og:title" content="Beigale Insights — Commercial Due Diligence &amp; Value Creation">
-<meta property="og:description" content="Independent commercial advisory led by Hagai Heshes and Guy Spira — due diligence before the deal, value creation after.">
+<meta property="og:title" content="Beigale Insights - Commercial Due Diligence &amp; Value Creation">
+<meta property="og:description" content="Independent commercial advisory led by Hagai Heshes and Guy Spira - due diligence before the deal, value creation after.">
 <meta property="og:url" content="https://www.beigale.com/">
 <meta property="og:image" content="https://www.beigale.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Beigale Insights — Commercial Due Diligence &amp; Value Creation">
-<meta name="twitter:description" content="Independent commercial advisory led by Hagai Heshes and Guy Spira — due diligence before the deal, value creation after.">
+<meta name="twitter:title" content="Beigale Insights - Commercial Due Diligence &amp; Value Creation">
+<meta name="twitter:description" content="Independent commercial advisory led by Hagai Heshes and Guy Spira - due diligence before the deal, value creation after.">
 <meta name="twitter:image" content="https://www.beigale.com/assets/og-image.png">
 
 <script type="application/ld+json">
@@ -72,7 +72,6 @@
     --hero-bg: #211F1A;
     --hero-text: #F9F8F5;
     --hero-accent: #F0C24B;
-    --card-accent-brown: #8B5A2B;
 
     --space-2: 16px;
     --space-3: 24px;
@@ -95,7 +94,7 @@
     .mobile-break { display: none; }
   }
 
-  #hero, #what-we-do, #who, #why, #contact {
+  #hero, #what-we-do, #selected-work, #who, #why, #contact {
     scroll-margin-top: 64px;
   }
 
@@ -104,9 +103,9 @@
      to compensate. For #who specifically, this also happens to be exactly
      what's needed to land the click with the end of What We Do's cards
      sitting flush against the nav (confirmed against the client's request
-     — the same value satisfies both "flush with nav" and "consistent
+     - the same value satisfies both "flush with nav" and "consistent
      eyebrow gap," they're not in conflict). */
-  #who, #contact {
+  #selected-work, #who, #contact {
     scroll-margin-top: 80px;
   }
 
@@ -389,11 +388,11 @@
     .mobile-menu { display: none !important; }
     .nav__cta { padding: 11px 22px; }
 
-    #hero, #what-we-do, #who, #why, #contact {
+    #hero, #what-we-do, #selected-work, #who, #why, #contact {
       scroll-margin-top: 84px;
     }
 
-    #who, #contact {
+    #selected-work, #who, #contact {
       scroll-margin-top: 116px;
     }
 
@@ -460,10 +459,6 @@
     border-radius: 2px;
   }
 
-  .service-card--vcp {
-    border-top-color: var(--card-accent-brown);
-  }
-
   .service-card--value {
     border-top-color: var(--color-accent);
   }
@@ -475,7 +470,6 @@
   }
 
   .service-card--dd .service-card__icon { color: var(--hero-accent); }
-  .service-card--vcp .service-card__icon { color: var(--card-accent-brown); }
   .service-card--value .service-card__icon { color: var(--color-accent); }
 
   .service-card__icon svg {
@@ -530,7 +524,6 @@
   }
 
   .service-card:nth-child(2) { transition-delay: 0.05s; }
-  .service-card:nth-child(3) { transition-delay: 0.1s; }
 
   @media (min-width: 900px) {
     .what-we-do { padding: var(--space-6) var(--space-6) var(--space-4); }
@@ -538,13 +531,59 @@
     .what-we-do__header { margin: 0 0 var(--space-6); }
 
     .what-we-do__grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       column-gap: var(--space-5);
       row-gap: var(--space-5);
       align-items: stretch;
     }
 
     .service-card { padding: 26px 26px var(--space-6); }
+  }
+
+  .service-card__explanation,
+  .case-card__summary {
+    margin: var(--space-3) 0 0;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: rgba(44, 44, 42, 0.72);
+    max-width: 65ch;
+  }
+
+  .what-we-do__engagement {
+    margin: var(--space-4) 0 0;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba(44, 44, 42, 0.72);
+    max-width: 65ch;
+  }
+
+  .selected-work {
+    background: var(--color-base);
+    padding: 48px var(--space-3) 10px;
+  }
+
+  .selected-work .what-we-do__label { margin-bottom: var(--space-4); }
+  .case-card { display: flex; flex-direction: column; }
+  .case-card__summary { margin: 0 0 var(--space-3); }
+  .case-card__download {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    margin-top: auto;
+    min-height: 44px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .case-card__download:hover { color: var(--color-accent); }
+
+  @media (min-width: 900px) {
+    .selected-work { padding: var(--space-4) var(--space-6); }
+    .selected-work .what-we-do__label { margin-bottom: var(--space-5); }
+    .nav__links { gap: 24px; }
+    .nav__links a { white-space: nowrap; }
   }
 
   /* Who We Work With */
@@ -704,18 +743,14 @@
     margin: 0 0 var(--space-3);
     font-family: var(--font-headline);
     font-weight: 400;
-    font-size: clamp(1.4375rem, 7.44vw, 2.0625rem);
+    font-size: clamp(1rem, 5.1vw, 2.75rem);
     line-height: 1.2;
     letter-spacing: -0.01em;
     color: var(--color-dark-text);
-    max-width: 20ch;
+    max-width: 32ch;
   }
 
-  @media (min-width: 440px) {
-    .why-us__header {
-      font-size: 33px;
-    }
-  }
+  .why-us__headline-line { display: block; white-space: nowrap; }
 
   @media (min-width: 500px) {
     .why-us__header {
@@ -1003,6 +1038,7 @@
   <a class="nav__logo" href="#hero">Beigale Insights Ltd.</a>
   <ul class="nav__links">
     <li><a href="#what-we-do">What We Do</a></li>
+    <li><a href="#selected-work">Selected Work</a></li>
     <li><a href="#who">Who We Work With</a></li>
     <li><a href="#why">About Beigale</a></li>
   </ul>
@@ -1025,6 +1061,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu__inner">
     <a href="#what-we-do">What We Do</a>
+    <a href="#selected-work">Selected Work</a>
     <a href="#who">Who We Work With</a>
     <a href="#why">About Beigale</a>
   </div>
@@ -1057,7 +1094,7 @@
   <div class="hero__inner">
     <h1>Commercial diligence. Value creation.</h1>
     <p class="hero__sub">
-      <span class="accent">Pressure-test</span> the deal. <span class="accent">Deliver</span> it after close.
+      On-demand executive firepower to <span class="accent">pressure-test</span> the deal and <span class="accent">deliver</span> it after close.
     </p>
     <a class="hero__cta" href="#contact">Contact Us</a>
   </div>
@@ -1078,29 +1115,12 @@
           </svg>
         </div>
         <h3 class="service-card__title">Commercial Due Diligence</h3>
-        <p class="service-card__tagline">Know what you're really acquiring</p>
+        <p class="service-card__tagline">Know what you’re really acquiring</p>
         <ul class="service-card__bullets">
-          <li>Commercial assets and strategic fit</li>
-          <li>Revenue and customer durability</li>
-          <li>Independent growth, margin and EBITDA outlook</li>
-          <li>Synergies, risks and dependencies</li>
-        </ul>
-      </article>
-
-      <article class="service-card service-card--vcp reveal">
-        <div class="service-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="8.5"/>
-            <path d="M15 9l-2 5-5 2 2-5 5-2Z"/>
-          </svg>
-        </div>
-        <h3 class="service-card__title">Value Creation Plan</h3>
-        <p class="service-card__tagline">Know where the value will come from</p>
-        <ul class="service-card__bullets">
-          <li>Translate the deal thesis into commercial priorities</li>
-          <li>Pressure-test growth and synergy assumptions</li>
-          <li>Define the key value-creation initiatives</li>
-          <li>Set priorities, milestones and ownership</li>
+          <li>Assess commercial assets, strategic fit and revenue durability</li>
+          <li>Rebuild the growth and profitability outlook bottom-up</li>
+          <li>Pressure-test synergies, risks and dependencies</li>
+          <li>Identify priorities for preserving and creating value after close</li>
         </ul>
       </article>
 
@@ -1111,14 +1131,35 @@
             <path d="M14.5 7H20.5V13"/>
           </svg>
         </div>
-        <h3 class="service-card__title">Post-Deal Value Creation</h3>
-        <p class="service-card__tagline">Turn the plan into measurable progress</p>
+        <h3 class="service-card__title">Commercial Value Creation</h3>
+        <p class="service-card__tagline">Turn commercial priorities into measurable progress</p>
         <ul class="service-card__bullets">
-          <li>Protect critical revenue and relationships</li>
+          <li>Protect critical revenue and customer relationships</li>
           <li>Address commercial gaps and dependencies</li>
-          <li>Adapt positioning, channels and GTM</li>
-          <li>Prove repeatable growth motions and realize synergies</li>
+          <li>Adapt positioning, channels and go-to-market</li>
+          <li>Drive commercial PMI and realize synergies</li>
+          <li>Step in as interim CEO or CRO when needed</li>
         </ul>
+        <p class="service-card__explanation">After an acquisition, we help teams work through commercial post-merger integration (PMI), aligning customer coverage, positioning, channels and sales motions around the combined business.</p>
+      </article>
+    </div>
+    <p class="what-we-do__engagement reveal">Engage us for diligence, a focused commercial execution mandate, or continuity from assessment through delivery.</p>
+  </div>
+</section>
+
+<section class="selected-work" id="selected-work" aria-labelledby="selected-work-title">
+  <div class="what-we-do__inner">
+    <h2 class="what-we-do__label" id="selected-work-title">Selected Work</h2>
+    <div class="what-we-do__grid">
+      <article class="service-card service-card--dd case-card reveal">
+        <h3 class="service-card__title">When commercial reality changed the deal</h3>
+        <p class="case-card__summary">A public-company acquirer needed an independent view of the target’s growth and strategic value. Our bottom-up outlook came in approximately 55% below management’s plan. The findings changed the buyer’s view of valuation and the deal thesis; it ultimately chose not to proceed.</p>
+        <a class="case-card__download" href="assets/beigale-commercial-due-diligence-case-study.pdf" download aria-label="Download case study: When commercial reality changed the deal">Download case study <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="service-card service-card--value case-card reveal">
+        <h3 class="service-card__title">From missed forecasts to commercial proof</h3>
+        <p class="case-card__summary">A healthcare technology company needed credible evidence ahead of a major ownership decision. We assumed interim commercial leadership, drove account-level execution and rebuilt the forecast bottom-up. Sales more than doubled quarter-over-quarter, with initial paid business converting into repeat business.</p>
+        <a class="case-card__download" href="assets/beigale-commercial-value-creation-case-study.pdf" download aria-label="Download case study: From missed forecasts to commercial proof">Download case study <span aria-hidden="true">↗</span></a>
       </article>
     </div>
   </div>
@@ -1131,7 +1172,7 @@
     <div class="who__layout">
       <div class="who__intro-block reveal">
         <h2 class="who__header">For&nbsp;acquirers&nbsp;and<br class="mobile-break">&nbsp;leadership&nbsp;teams</h2>
-        <p class="who__intro">We support buyers before the deal and leadership teams after close.</p>
+        <p class="who__intro">We support acquirers making investment decisions and leadership teams delivering commercial progress.</p>
       </div>
 
       <div class="who__groups">
@@ -1157,15 +1198,15 @@
       </div>
     </div>
 
-    <p class="who__reference reveal">— References available upon request —</p>
+    <p class="who__reference reveal">References available upon request</p>
   </div>
 </section>
 
 <section class="why-us" id="why">
   <div class="why-us__inner">
     <p class="why-us__label">About Beigale</p>
-    <h2 class="why-us__header reveal">Senior&nbsp;commercial&nbsp;judgment.<br>Hands-on support.</h2>
-    <p class="why-us__intro reveal">Decades of commercial leadership before and after the deal.</p>
+    <h2 class="why-us__header reveal"><span class="why-us__headline-line">Senior commercial judgment.</span><span class="why-us__headline-line">On-demand executive firepower.</span></h2>
+    <p class="why-us__intro reveal">We lead diligence directly and step into commercial execution when needed, bringing interim leadership, ownership and momentum.</p>
 
     <div class="partners">
       <div class="partners__layout">
@@ -1219,7 +1260,7 @@
 <section class="contact" id="contact">
   <div class="contact__inner">
     <p class="contact__label">Contact</p>
-    <h2 class="contact__header reveal">Before&nbsp;or&nbsp;after&nbsp;the&nbsp;deal,<br class="mobile-break">&nbsp;let's&nbsp;talk.</h2>
+    <h2 class="contact__header reveal">A deal to assess. Commercial priorities to deliver. Let’s talk.</h2>
 
     <div class="contact__actions">
       <div class="contact__action reveal">
@@ -1265,9 +1306,18 @@
       navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
     mobileMenu.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        var target = document.querySelector(link.getAttribute('href'));
         mobileMenu.classList.remove('is-open');
         navToggle.setAttribute('aria-expanded', 'false');
+        // Let the menu collapse before measuring the anchor position.
+        window.setTimeout(function () {
+          if (target) {
+            history.pushState(null, '', link.getAttribute('href'));
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 300);
       });
     });
   }
