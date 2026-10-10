@@ -12,8 +12,8 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Beigale Insights - Commercial Due Diligence &amp; Value Creation</title>
-<meta name="description" content="Beigale Insights - independent commercial advisory led by Hagai Heshes and Guy Spira. Due diligence before the deal, value creation after.">
+<title>Beigale Insights | M&amp;A Leadership, Commercial Due Diligence &amp; Value Creation</title>
+<meta name="description" content="Your VP M&amp;A, on demand. Beigale helps acquirers drive M&amp;A strategy, pressure-test commercial opportunities, and deliver value through hands-on leadership.">
 <link rel="canonical" href="https://www.beigale.com/">
 
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -21,16 +21,16 @@
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Beigale Insights">
-<meta property="og:title" content="Beigale Insights - Commercial Due Diligence &amp; Value Creation">
-<meta property="og:description" content="Independent commercial advisory led by Hagai Heshes and Guy Spira - due diligence before the deal, value creation after.">
+<meta property="og:title" content="Beigale Insights | M&amp;A Leadership, Commercial Due Diligence &amp; Value Creation">
+<meta property="og:description" content="Your VP M&amp;A, on demand. Beigale helps acquirers drive M&amp;A strategy, pressure-test commercial opportunities, and deliver value through hands-on leadership.">
 <meta property="og:url" content="https://www.beigale.com/">
 <meta property="og:image" content="https://www.beigale.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Beigale Insights - Commercial Due Diligence &amp; Value Creation">
-<meta name="twitter:description" content="Independent commercial advisory led by Hagai Heshes and Guy Spira - due diligence before the deal, value creation after.">
+<meta name="twitter:title" content="Beigale Insights | M&amp;A Leadership, Commercial Due Diligence &amp; Value Creation">
+<meta name="twitter:description" content="Your VP M&amp;A, on demand. Beigale helps acquirers drive M&amp;A strategy, pressure-test commercial opportunities, and deliver value through hands-on leadership.">
 <meta name="twitter:image" content="https://www.beigale.com/assets/og-image.png">
 
 <script type="application/ld+json">
@@ -39,7 +39,7 @@
   "@type": "ProfessionalService",
   "name": "Beigale Insights",
   "url": "https://www.beigale.com/",
-  "description": "Independent commercial due diligence and post-deal commercial value creation for acquirers and leadership teams.",
+  "description": "On-demand M&A leadership, commercial due diligence and commercial value creation for acquirers and leadership teams.",
   "email": "info@beigale.com",
   "founder": [
     {
@@ -257,7 +257,7 @@
     position: relative;
     background: var(--hero-bg);
     overflow: hidden;
-    padding: 96px var(--space-3) 146px;
+    padding: 96px var(--space-3) 112px;
   }
 
   .hero__texture {
@@ -279,7 +279,7 @@
     z-index: 1;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
   }
 
   .hero h1 {
@@ -298,6 +298,7 @@
   .hero__sub {
     margin: 0;
     font-size: clamp(1.05rem, 3.5vw, 1.375rem);
+    font-weight: 400;
     line-height: 1.6;
     color: rgba(249, 248, 245, 0.9);
     opacity: 0;
@@ -396,9 +397,9 @@
       scroll-margin-top: 116px;
     }
 
-    .hero { padding: 150px var(--space-6) 312px; }
-    .hero__inner { max-width: 900px; margin: 0 auto; gap: 36px; }
-    .hero__sub { max-width: 660px; }
+    .hero { padding: 150px var(--space-6) 136px; }
+    .hero__inner { max-width: 1000px; margin: 0 auto; gap: 20px; }
+    .hero__sub { max-width: none; font-size: clamp(1.125rem, 1.53vw, 1.375rem); white-space: nowrap; }
     .hero__cta { margin-top: 36px; }
   }
 
@@ -562,7 +563,7 @@
     padding: 48px var(--space-3) 10px;
   }
 
-  .selected-work .what-we-do__label { margin-bottom: var(--space-4); }
+  .selected-work .what-we-do__label { margin-bottom: var(--space-2); }
   .case-card { display: flex; flex-direction: column; }
   .case-card__summary { margin: 0 0 var(--space-3); }
   .case-card__download {
@@ -581,7 +582,7 @@
 
   @media (min-width: 900px) {
     .selected-work { padding: var(--space-4) var(--space-6); }
-    .selected-work .what-we-do__label { margin-bottom: var(--space-5); }
+    .selected-work .what-we-do__label { margin-bottom: var(--space-2); }
     .nav__links { gap: 24px; }
     .nav__links a { white-space: nowrap; }
   }
@@ -1030,6 +1031,35 @@
       padding: var(--space-3) var(--space-6);
     }
   }
+  /* Copy update: retain existing tokens and patterns, allow natural wrapping. */
+  .hero__support {
+    margin: 0;
+    max-width: 65ch;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(249, 248, 245, 0.75);
+  }
+  .what-we-do__header { max-width: 32ch; margin-bottom: var(--space-3); }
+  .section-intro, .contact__intro {
+    margin: 0 0 var(--space-4);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba(44, 44, 42, 0.72);
+    max-width: 65ch;
+  }
+  .service-card--strategy { border-top-color: var(--color-accent); }
+  .service-grid .service-card__explanation { margin-top: 0; }
+  .contact__header { margin-bottom: var(--space-3); }
+  .contact__intro { margin-left: auto; margin-right: auto; }
+  @media (min-width: 900px) {
+    .service-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--space-3); }
+    .section-intro, .contact__intro { margin-bottom: var(--space-5); }
+    .selected-work .what-we-do__header { margin-bottom: var(--space-4); }
+  }
+  .what-we-do__header, .who__header, .why-us__header, .contact__header { max-width: none; }
+  .service-grid .service-card--value { border-top-color: var(--color-ink); }
+  .section-intro, .who__intro, .why-us__intro, .contact__intro,
+  .what-we-do__engagement, .hero__support { max-width: none; }
 </style>
 </head>
 <body>
@@ -1043,7 +1073,7 @@
     <li><a href="#why">About Beigale</a></li>
   </ul>
   <div class="nav__actions">
-    <a class="nav__cta" href="#contact">Contact Us</a>
+    <a class="nav__cta" href="#contact">Let's Talk</a>
     <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
       <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
         <line x1="4" y1="7" x2="20" y2="7"/>
@@ -1092,74 +1122,58 @@
     </svg>
   </div>
   <div class="hero__inner">
-    <h1>Commercial diligence. Value creation.</h1>
-    <p class="hero__sub">
-      On-demand executive firepower to <span class="accent">pressure-test</span> the deal and <span class="accent">deliver</span> it after close.
-    </p>
-    <a class="hero__cta" href="#contact">Contact Us</a>
+    <h1>Your VP M&amp;A. On Demand.</h1>
+    <h2 class="hero__sub">
+      <span class="accent">Commercial expertise.</span> From acquisition strategy to value creation.
+    </h2>
+    <p class="hero__support">We work on your side of the table, driving your acquisition agenda, evaluating opportunities, and taking ownership of commercial value creation.</p>
+    <a class="hero__cta" href="#contact">Let's Talk</a>
   </div>
 </header>
 
 <section class="what-we-do" id="what-we-do">
   <div class="what-we-do__inner">
     <p class="what-we-do__label">What We Do</p>
-    <h2 class="what-we-do__header reveal">Commercial&nbsp;clarity&nbsp;<br class="mobile-break">before&nbsp;the&nbsp;deal.<br>Commercial&nbsp;progress&nbsp;<br class="mobile-break">after&nbsp;it.</h2>
+    <h2 class="what-we-do__header reveal">Better acquisition decisions. More commercial value.</h2>
 
-    <div class="what-we-do__grid">
+    <p class="section-intro reveal">Senior leadership for your M&amp;A agenda. Focused commercial expertise where it matters most.</p>
+
+    <div class="what-we-do__grid service-grid">
+      <article class="service-card service-card--strategy reveal">
+        <h3 class="service-card__title">M&amp;A Strategy &amp; Leadership</h3>
+        <p class="service-card__explanation">Define acquisition priorities, identify and screen targets, and drive your M&amp;A agenda, from strategy through decision-making.</p>
+      </article>
+
       <article class="service-card service-card--dd reveal">
-        <div class="service-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 3.5h9l3 3v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-16a1 1 0 0 1 1-1Z"/>
-            <path d="M15 3.5v3h3"/>
-            <path d="M8.5 13.5l2.2 2.2 4.8-5"/>
-          </svg>
-        </div>
         <h3 class="service-card__title">Commercial Due Diligence</h3>
-        <p class="service-card__tagline">Know what you’re really acquiring</p>
-        <ul class="service-card__bullets">
-          <li>Assess commercial assets, strategic fit and revenue durability</li>
-          <li>Rebuild the growth and profitability outlook bottom-up</li>
-          <li>Pressure-test synergies, risks and dependencies</li>
-          <li>Identify priorities for preserving and creating value after close</li>
-        </ul>
+        <p class="service-card__explanation">Pressure-test the commercial case. Validate revenue, challenge growth assumptions, uncover risks, and assess the real value potential.</p>
       </article>
 
       <article class="service-card service-card--value reveal">
-        <div class="service-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 16.5 9.5 11l4 3.5L20 7.5"/>
-            <path d="M14.5 7H20.5V13"/>
-          </svg>
-        </div>
-        <h3 class="service-card__title">Commercial Value Creation</h3>
-        <p class="service-card__tagline">Turn commercial priorities into measurable progress</p>
-        <ul class="service-card__bullets">
-          <li>Protect critical revenue and customer relationships</li>
-          <li>Address commercial gaps and dependencies</li>
-          <li>Adapt positioning, channels and go-to-market</li>
-          <li>Drive commercial PMI and realize synergies</li>
-          <li>Step in as interim CEO or CRO when needed</li>
-        </ul>
-        <p class="service-card__explanation">After an acquisition, we help teams work through commercial post-merger integration (PMI), aligning customer coverage, positioning, channels and sales motions around the combined business.</p>
+        <h3 class="service-card__title">Commercial Value Creation &amp; Leadership</h3>
+        <p class="service-card__explanation">Turn commercial priorities into measurable progress. From value creation planning and commercial integration to hands-on and interim leadership.</p>
       </article>
     </div>
-    <p class="what-we-do__engagement reveal">Engage us for diligence, a focused commercial execution mandate, or continuity from assessment through delivery.</p>
+    <p class="what-we-do__engagement reveal">Engage us at any stage, for your acquisition agenda, a deal to evaluate, or a standalone commercial leadership mandate.</p>
   </div>
 </section>
 
 <section class="selected-work" id="selected-work" aria-labelledby="selected-work-title">
   <div class="what-we-do__inner">
-    <h2 class="what-we-do__label" id="selected-work-title">Selected Work</h2>
+    <p class="what-we-do__label">Selected Work</p>
+    <h2 class="what-we-do__header reveal" id="selected-work-title">The proof is in the work.</h2>
     <div class="what-we-do__grid">
       <article class="service-card service-card--dd case-card reveal">
-        <h3 class="service-card__title">When commercial reality changed the deal</h3>
-        <p class="case-card__summary">A public-company acquirer needed an independent view of the target’s growth and strategic value. Our bottom-up outlook came in approximately 55% below management’s plan. The findings changed the buyer’s view of valuation and the deal thesis; it ultimately chose not to proceed.</p>
-        <a class="case-card__download" href="assets/beigale-commercial-due-diligence-case-study.pdf" download aria-label="Download case study: When commercial reality changed the deal">Download case study <span aria-hidden="true">↗</span></a>
+        <p class="service-card__tagline">Commercial Due Diligence</p>
+        <h3 class="service-card__title">When the growth story didn't hold up</h3>
+        <p class="case-card__summary">A bottom-up commercial assessment revealed a revenue outlook approximately 55% below management's plan. The findings led the acquirer to revisit the deal rationale and ultimately walk away.</p>
+        <a class="case-card__download" href="assets/beigale-commercial-due-diligence-case-study.pdf" download aria-label="Read the Case (PDF): When the growth story didn't hold up">Read the Case <span aria-hidden="true">↗</span></a>
       </article>
       <article class="service-card service-card--value case-card reveal">
-        <h3 class="service-card__title">From missed forecasts to commercial proof</h3>
-        <p class="case-card__summary">A healthcare technology company needed credible evidence ahead of a major ownership decision. We assumed interim commercial leadership, drove account-level execution and rebuilt the forecast bottom-up. Sales more than doubled quarter-over-quarter, with initial paid business converting into repeat business.</p>
-        <a class="case-card__download" href="assets/beigale-commercial-value-creation-case-study.pdf" download aria-label="Download case study: From missed forecasts to commercial proof">Download case study <span aria-hidden="true">↗</span></a>
+        <p class="service-card__tagline">Commercial Leadership</p>
+        <h3 class="service-card__title">From commercial uncertainty to execution</h3>
+        <p class="case-card__summary">Hands-on leadership, sharper priorities, and a disciplined commercial operating cadence helped more than double quarter-over-quarter sales.</p>
+        <a class="case-card__download" href="assets/beigale-commercial-value-creation-case-study.pdf" download aria-label="Read the Case (PDF): From commercial uncertainty to execution">Read the Case <span aria-hidden="true">↗</span></a>
       </article>
     </div>
   </div>
@@ -1171,28 +1185,26 @@
 
     <div class="who__layout">
       <div class="who__intro-block reveal">
-        <h2 class="who__header">For&nbsp;acquirers&nbsp;and<br class="mobile-break">&nbsp;leadership&nbsp;teams</h2>
-        <p class="who__intro">We support acquirers making investment decisions and leadership teams delivering commercial progress.</p>
+        <h2 class="who__header">For acquirers and leadership teams</h2>
+        <p class="who__intro">For CEOs and CFOs with lean internal M&amp;A capabilities, and leaders with a focused commercial mandate.</p>
       </div>
 
       <div class="who__groups">
         <div class="audience-block audience-block--acquirers reveal">
           <h3 class="audience-block__title">Acquirers</h3>
           <ul class="audience-block__list">
-            <li>Corporate acquirers and corporate-development teams</li>
-            <li>Emerging and lower-middle-market private equity firms</li>
-            <li>Growth and late-stage investors supporting portfolio-company acquisitions</li>
-            <li>Portfolio companies pursuing bolt-on acquisitions</li>
-            <li>Family offices and other active buyers</li>
+            <li>Corporate acquirer CEOs, CFOs and corporate-development teams</li>
+            <li>PE deal and operating partners</li>
+            <li>Portfolio companies pursuing acquisitions</li>
           </ul>
         </div>
 
         <div class="audience-block audience-block--leadership reveal">
           <h3 class="audience-block__title">Leadership Teams</h3>
           <ul class="audience-block__list">
-            <li>Boards, CEOs and founders</li>
-            <li>Management and commercial teams</li>
-            <li>Teams responsible for post-acquisition value creation</li>
+            <li>Portfolio company CEOs and commercial teams</li>
+            <li>Boards and owners requiring commercial leadership or an operating reset</li>
+            <li>Teams driving commercial value creation after an acquisition</li>
           </ul>
         </div>
       </div>
@@ -1205,8 +1217,8 @@
 <section class="why-us" id="why">
   <div class="why-us__inner">
     <p class="why-us__label">About Beigale</p>
-    <h2 class="why-us__header reveal"><span class="why-us__headline-line">Senior commercial judgment.</span><span class="why-us__headline-line">On-demand executive firepower.</span></h2>
-    <p class="why-us__intro reveal">We lead diligence directly and step into commercial execution when needed, bringing interim leadership, ownership and momentum.</p>
+    <h2 class="why-us__header reveal">Partner-led. Hands-on. Accountable.</h2>
+    <p class="why-us__intro reveal">You work directly with us. We bring senior commercial judgment, drive agreed priorities, coordinate the right specialists, and stay close to execution.</p>
 
     <div class="partners">
       <div class="partners__layout">
@@ -1216,7 +1228,7 @@
         <div class="partners__profiles">
           <div class="partner reveal">
             <h3 class="partner__name">Hagai Heshes</h3>
-            <p class="partner__role">Commercial strategy, positioning and go-to-market</p>
+            <p class="partner__role">Managing Partner</p>
             <p class="partner__bio">Hagai has more than 25 years of experience helping technology and healthcare companies sharpen their strategy, positioning and go-to-market. He has held senior marketing and product-marketing leadership roles and works closely with founders, executives and commercial teams on growth, market entry, category creation and commercial transformation. Hagai holds a master's degree from the University of Pennsylvania.</p>
           </div>
 
@@ -1224,7 +1236,7 @@
 
           <div class="partner reveal">
             <h3 class="partner__name">Guy Spira</h3>
-            <p class="partner__role">Commercial diligence, strategy and business building</p>
+            <p class="partner__role">Managing Partner</p>
             <p class="partner__bio">Guy has more than 25 years of experience working with companies, acquirers and leadership teams on commercial strategy, growth and business development. He brings a structured, commercially grounded perspective to assessing businesses, identifying risks and opportunities, and translating strategic priorities into focused action and measurable progress. Guy holds an MBA from Stanford Graduate School of Business.</p>
           </div>
         </div>
@@ -1233,25 +1245,26 @@
 
     <hr class="why-us__divider reveal">
 
+    <h2 class="why-us__header reveal">Senior judgment. Executive firepower.</h2>
     <div class="why-us__grid">
       <div class="differentiator reveal">
-        <h3 class="differentiator__headline">Independent judgment</h3>
-        <p class="differentiator__text">A clear-eyed commercial view, without pressure to validate the deal thesis.</p>
+        <h3 class="differentiator__headline">Independent by design</h3>
+        <p class="differentiator__text">We work for acquirers, not deal closure. No deal-closing incentives.</p>
       </div>
 
       <div class="differentiator reveal">
-        <h3 class="differentiator__headline">Operators, not just analysts</h3>
-        <p class="differentiator__text">Hands-on experience building, positioning and growing businesses, and working alongside management to solve commercial problems.</p>
+        <h3 class="differentiator__headline">Commercial DNA</h3>
+        <p class="differentiator__text">Deep commercial experience to challenge assumptions, expose risks, and uncover value.</p>
       </div>
 
       <div class="differentiator reveal">
-        <h3 class="differentiator__headline">Candid when it matters</h3>
-        <p class="differentiator__text">We say what we believe is commercially true, even when it challenges assumptions or calls for difficult decisions.</p>
+        <h3 class="differentiator__headline">Operators, not just advisers</h3>
+        <p class="differentiator__text">We take ownership, work alongside management, and drive execution.</p>
       </div>
 
       <div class="differentiator reveal">
-        <h3 class="differentiator__headline">Built around the need</h3>
-        <p class="differentiator__text">Focused, fast-moving engagements tailored to the specific commercial questions and priorities at hand.</p>
+        <h3 class="differentiator__headline">Partners do the work</h3>
+        <p class="differentiator__text">Two senior executives. Direct involvement. No junior teams or consulting layers.</p>
       </div>
     </div>
   </div>
@@ -1260,11 +1273,13 @@
 <section class="contact" id="contact">
   <div class="contact__inner">
     <p class="contact__label">Contact</p>
-    <h2 class="contact__header reveal">A deal to assess. Commercial priorities to deliver. Let’s talk.</h2>
+    <h2 class="contact__header reveal">Let's talk about what's on your agenda.</h2>
+
+    <p class="contact__intro reveal">An acquisition strategy, a deal to evaluate, or a commercial challenge to solve.</p>
 
     <div class="contact__actions">
       <div class="contact__action reveal">
-        <a class="contact__button" href="mailto:info@beigale.com">Email Us</a>
+        <a class="contact__button" href="mailto:info@beigale.com">Let's Talk</a>
         <span class="contact__detail">info@beigale.com</span>
       </div>
 
